@@ -72,3 +72,4 @@ home-manager switch
     - Jupyter
     - Thonny
     - Visual Studio Code
+12. Wenn alles i.O. ist, lege einen Sicherungspunkt für diese VM in VirtualBox an - so kannst du, wenn mal etwas schief gegangen ist, jederzeit auf diesen sauberen Zustand zurückwechseln.
