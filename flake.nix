@@ -15,12 +15,16 @@
             # default setup for user demo
             "demo" = home-manager.lib.homeManagerConfiguration {
                 inherit pkgs;
-                modules = [ ./home.nix ./desktop.nix ];
+                modules = [ ./home.nix ./standard-desktop.nix ];
             };
-            # spezial setup, aktivierung mittels "make web-entwicklung" oder "home-manager switch --flake .#web-entwicklung"
+            # spezial-Setups, Aktivierung bspw. mittels "make web-entwicklung" oder "home-manager switch --flake .#web-entwicklung"
             web-entwicklung = home-manager.lib.homeManagerConfiguration {
                 inherit pkgs;
-                modules = [ ./home.nix ./web-entwicklung.nix ];
+                modules = [ ./home.nix ./standard-desktop.nix ./web-entwicklung.nix ];
+            };
+            jupyter-chatbook = home-manager.lib.homeManagerConfiguration {
+                inherit pkgs;
+                modules = [ ./home.nix ./standard-desktop.nix ./jupyter-chatbook.nix ];
             };
         };
     };
