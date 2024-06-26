@@ -1,9 +1,9 @@
 .PHONY: web-entwicklung
-student:
+web-entwicklung:
 	home-manager switch --flake .#web-entwicklung
 
-.PHONY: jupyter-chatbook
-desktop:
+.PHONY: chatbook
+chatbook:
 	home-manager switch --flake .#jupyter-chatbook
 
 .PHONY: desktop
