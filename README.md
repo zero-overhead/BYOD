@@ -3,9 +3,9 @@ BYOD $\to$ heterogene Umgebung + WSL + NixOS $\to$ indentische Umgebung fürs Pr
 
 ## Setup
 
-1. Starte eine Kommandozeile (CommandPrompt)
+1. Starte eine Windows-Kommandozeile (CommandPrompt)
 
-2. Aktiviere WSL
+2. Aktiviere WSL (Windows Subsystem für Linux)
 ```bash
 wsl --install --no-distribution
 ```
@@ -14,31 +14,35 @@ wsl --install --no-distribution
 ```bash
 cd Downloads\NixOS-WSL-Launcher
 .\NixOS.exe install
+```
+
+4. Mache NixOS zur Default-Distribution
+```bash
 wsl -s NixOS
 ```
 
-4. Schliesse nun die Kommandozeile.
+5. Schliesse nun die Kommandozeile.
 
-5. Starte die NixOS.app
+6. Starte die NixOS.app
 
-6. Hole dir die aktuelle Konfiguration
+7. Hole dir die aktuelle Konfiguration
 ```bash
 nix-shell -p git
 git clone --single-branch --branch wsl https://github.com/zero-overhead/BYOD
 ```
 
-7. Kopiere die Konfiguration an die richtige Stelle
+8. Kopiere die Konfiguration an die richtige Stelle
 ```bash
 sudo cp -r BYOD/con* /etc/nixos/
 ```
 
-8. Lade die Konfiguration
+9. Aktiviere die Konfiguration
 ```bash
 sudo nix-channel --update
 sudo nixos-rebuild switch
 ```
 
-9. Test
+10. Test
 - jupyter: ```jupyter lab``` (copy/paste der angezeigten URL - ähnlich dieser http://localhost:8888/lab?token=7e7d9be85131b5df3840d98690f93fe5145baf9231535b28 - in deinen Browser)
 - TigerJython: ```tjython```
 - thonny: ```thonny```
