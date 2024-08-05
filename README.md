@@ -26,7 +26,7 @@ git clone --single-branch --branch wsl https://github.com/zero-overhead/BYOD
 
 6. Kopiere die Konfiguration an die richtige Stelle
 ```bash
-cp -r BYOD/con* /etc/nixos/
+sudo cp -r BYOD/con* /etc/nixos/
 ```
 
 7. Lade die Konfiguration
