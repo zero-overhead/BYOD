@@ -1,75 +1,47 @@
-# BYOD + VirtualBox + NixOS + home-manager
-BYOD $\to$ heterogene Umgebung + (VirtualBox + NixOS + home-manager) $\to$ indentische Umgebung fürs Programmieren im Klassenraum.
+# BYOD-Windows-Rechner + NixOS@WSL
+BYOD $\to$ heterogene Umgebung + WSL + NixOS $\to$ indentische Umgebung fürs Programmieren im Klassenraum.
 
-Für Windows-, Mac- oder Linux-Rechner aber ~~iPad~~.
+## Setup
 
-## Vor dem Unterricht
-1. Starte deinen Computer, dann VirtualBox und dann die NixOS-VM
-2. Neue Unterrichtsmateralien zum ThemaXYZ holen:
+1. Starte eine Kommandozeile (CommandPrompt)
+
+2. Aktiviere WSL
 ```bash
-cd ~/Documents
-git clone https://github.com/zero-overhead/ThemaXYZ
-```
-3. Bestehende Unterrichtsmateralien zum ThemaXYZ aktualisieren:
-```bash
-cd ~/Documents/ThemaXYZ
-git pull
-```
-Falls es dabei zu Fehlern kommt und du nicht mehr weiter weisst: Änderungen speichern, Backup anlegen (so geht nichts verloren) und main-Branch auf Ausgangszustand zurücksetzen:
-```bash
-git commit -am"Notfallsicherung1" # alle Änderungen speichern
-git branch Notfallsicherung1 # neuen Branch als Sicherungskopie anlegen
-git checkout main # auf main Branch wechseln
-git fetch --all
-git reset --hard origin/main
-```
-4. Je nach Bedarf TigerJython, Thonny, Jupyter, Filius, VS-Code etc. starten
-
-## Zum Ende des Unterrichts
-1. Alle bearbeiteten Dateien speichern
-2. VM sichern und VirtualBox beenden
-
-## Einmaliges Setup
-1. BYOD - du hast einen Windows-, Mac- oder Linux-Rechner aber ~~iPad~~ ?
-2. Installiere [VirtualBox](https://www.virtualbox.org/wiki/Downloads) auf deinem Rechner
-3. Lade das [NixOS-VirtualBox](https://nixos.org/download/#nixos-virtualbox)-Image herunter
-4. Starte VirtualBox und importiere das gerade heruntergeladene NixOS-VirtualBox-Image und
-5. setze der Virtuellen Maschine (VM) den RAM auf 4GB und die Prozessoren auf 2 oder 3
-6. Starte VM, du wirst automatisch eingelogged
-7. Setze Tastatur-Layout und Zeitzone (Settings -> Keyboard und Settings -> Timezone)
-8. Öffne eine Konsole (Kommandozeile, Terminal) und installiere [Home-Manager Stand Alone](https://nix-community.github.io/home-manager/index.xhtml#sec-install-standalone) durch ff. Befehle:
-
-```bash
-nix-channel --add https://github.com/nix-community/home-manager/archive/release-24.05.tar.gz home-manager
-
-nix-channel --update
+wsl --install --no-distribution
 ```
 
-Ausloggen und wieder Einloggen. Dann
-
+3. Lade die Datei NixOS-WSL-Launcher.zip von https://github.com/nix-community/NixOS-WSL und entpacke diese, bspw. im Ordner Downloads. Führe dann ff. Befehle aus
 ```bash
-nix-shell '<home-manager>' -A install
+cd Downloads\NixOS-WSL-Launcher
+.\NixOS.exe install
+wsl -s NixOS
 ```
-9. Clone das Git-Repository mit der Systemkonfiguration für den Informatikunterricht
+4. Starte die NixOS.app
+
+5. Hole dir die aktuelle Konfiguration
 ```bash
 nix-shell -p git
+git clone --single-branch --branch wsl https://github.com/zero-overhead/BYOD
 ```
-dann
+
+6. Kopiere die Konfiguration an die richtige Stelle
 ```bash
-git clone https://github.com/zero-overhead/BYOD
-mv ~/.config/home-manager ~/.config/home-manager-backup
-mv BYOD ~/.config/home-manager
-mkdir ~/.config/nix
-cp ~/.config/home-manager/nix.conf ~/.config/nix/
+cp -r BYOD/con* /etc/nixos/
 ```
-10. Erstelle die Unterrichtsumgebung
+
+7. Lade die Konfiguration
 ```bash
-home-manager switch
+sudo nix-channel --update
+sudo nixos-rebuild switch
 ```
-11. Ausloggen und wieder einloggen (User "demo" und Passwort "demo") und dann überprüfen, ob benötigte Software installiert ist.
-    - TigerJython
-    - Filius
-    - Jupyter
-    - Thonny
-    - Visual Studio Code
-12. Wenn alles i.O. ist, lege einen Sicherungspunkt für diese VM in VirtualBox an - so kannst du, wenn mal etwas schief gegangen ist, jederzeit auf diesen sauberen Zustand zurückwechseln.
+
+8. Test
+- jupyter: ```jupyter lab```
+- thonny: ```thonny```
+- ollama: ```ollama list```
+- oterm: ```oterm```
+- open-webui: ```http://127.0.0.1:8080/```
+
+9. Workaround
+- TigerJython: ```export NIXPKGS_ALLOW_UNFREE=1; nix run github:nixos/nixpkgs/pull/316431/head#tigerjython --extra-experimental-features "nix-command flakes" --impure```
+- Filius: ```nix run github:nixos/nixpkgs/pull/326102/head#filius --extra-experimental-features "nix-command flakes"```
