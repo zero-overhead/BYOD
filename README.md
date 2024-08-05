@@ -40,11 +40,9 @@ sudo nixos-rebuild switch
 
 9. Test
 - jupyter: ```jupyter lab``` (copy/paste der angezeigten URL - ähnlich dieser http://localhost:8888/lab?token=7e7d9be85131b5df3840d98690f93fe5145baf9231535b28 - in deinen Browser)
+- TigerJython: ```tjython```
 - thonny: ```thonny```
-- ollama: ```ollama list``` (installiere ein Modell - siehe https://ollama.com/models - starte zunächst mit einem kleinen Modell, für das du nicht viel Rechenpower benötigst, wie etwa ```ollama run deepseek-coder:1.3b```)
+- ollama: ```ollama list``` (installiere zunächst mindestens ein Modell - siehe https://ollama.com/models - starte mit einem kleinen Modell, für das du nicht viel Rechenpower benötigst, wie etwa durch Eingabe von ```ollama run deepseek-coder:1.3b```)
 - oterm: ```oterm```
-- open-webui: ```http://127.0.0.1:8080/```
-
-10. Workarounds für derzeit noch nicht standardmässig in Nix verfügbare Programme
-- TigerJython: ```export NIXPKGS_ALLOW_UNFREE=1; nix run github:nixos/nixpkgs/pull/316431/head#tigerjython --extra-experimental-features "nix-command flakes" --impure```
-- Filius: ```nix run github:nixos/nixpkgs/pull/326102/head#filius --extra-experimental-features "nix-command flakes"```
+- open-webui: ```http://127.0.0.1:8080/``` (copy/paste in deinen Browser)
+- Filius: ```filius```

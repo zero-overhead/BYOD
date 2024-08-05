@@ -43,6 +43,12 @@
     obsidian
   ];
 
+  environment.shellAliases = {
+    gs = "git status";
+    tjython = "export NIXPKGS_ALLOW_UNFREE=1; nix run github:nixos/nixpkgs/pull/316431/head#tigerjython --impure --extra-experimental-features nix-command --extra-experimental-features flakes 1> /dev/null 2> /dev/null &";
+    filius = "nix run github:nixos/nixpkgs/pull/326102/head#filius --extra-experimental-features nix-command --extra-experimental-features flakes 1> /dev/null 2> /dev/null &";
+  };
+  
   services.ollama = {
     #package = pkgs.unstable.ollama; # Uncomment if you want to use the unstable channel, see https://fictionbecomesfact.com/nixos-unstable-channel
     enable = true;
