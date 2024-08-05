@@ -48,7 +48,7 @@ sudo nixos-rebuild switch
 - thonny: ```thonny```
 - ollama: ```ollama list``` oder bspw. ```ollama run deepseek-coder:1.3b```
 - oterm: ```oterm```
-- open-webui: copy/paste ```http://127.0.0.1:8080/``` in deinen Browser, installiere zunächst mindestens ein Modell, siehe https://ollama.com/models, bspw. deepseek-coder:1.3b)
+- open-webui: copy/paste ```http://127.0.0.1:8080/``` in deinen Browser, installiere zunächst mindestens ein Modell, siehe https://ollama.com/models, bspw. ```deepseek-coder:1.3b```
 - Filius: ```filius```
 
 ![open-webui](./open-webui.png)
