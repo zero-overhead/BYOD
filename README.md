@@ -16,6 +16,9 @@ cd Downloads\NixOS-WSL-Launcher
 .\NixOS.exe install
 wsl -s NixOS
 ```
+
+Schliesse nun die Kommandozeile.
+
 4. Starte die NixOS.app
 
 5. Hole dir die aktuelle Konfiguration
