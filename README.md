@@ -39,7 +39,7 @@ sudo nixos-rebuild switch
 ```
 
 9. Test
-- jupyter: ```jupyter lab``` (copy/paste der angezeigten URL (ähnlich dieser http://localhost:8888/lab?token=7e7d9be85131b5df3840d98690f93fe5145baf9231535b28) in deinen Browser)
+- jupyter: ```jupyter lab``` (copy/paste der angezeigten URL - ähnlich dieser http://localhost:8888/lab?token=7e7d9be85131b5df3840d98690f93fe5145baf9231535b28 - in deinen Browser)
 - thonny: ```thonny```
 - ollama: ```ollama list``` (installiere ein Modell - siehe https://ollama.com/models - starte zunächst mit einem kleinen Modell, für das du nicht viel Rechenpower benötigst, wie etwa ```ollama run deepseek-coder:1.3b```)
 - oterm: ```oterm```
