@@ -6,12 +6,23 @@
 # https://github.com/nix-community/NixOS-WSL
 
 { config, lib, pkgs, ... }:
-
+let
+  # add unstable channel declaratively
+  unstableTarball = fetchTarball https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz;
+in
 {
   imports = [
     # include NixOS-WSL modules
     <nixos-wsl/modules>
   ];
+
+  nixpkgs.config = {
+    packageOverrides = pkgs: {
+      unstable = import unstableTarball {
+        config = config.nixpkgs.config;
+      };
+    };
+  };
 
   wsl.enable = true;
   wsl.defaultUser = "nixos";
@@ -24,42 +35,14 @@
     git
     htop
     file
-    gnumake
-    hyperfine
-    
-    thonny
-    jupyter
-    vscode
-    vscode-extensions.mhutchie.git-graph
-
-    ollama
     oterm
     ffmpeg
-    
-#    R
-#    nodejs
-#    rakudo
-#    zef
-    obsidian
   ];
 
-  environment.shellAliases = {
-    gs = "git status";
-    tjython = "export NIXPKGS_ALLOW_UNFREE=1; nix run github:nixos/nixpkgs/pull/316431/head#tigerjython --impure --extra-experimental-features nix-command --extra-experimental-features flakes 1> /dev/null 2> /dev/null &";
-    filius = "nix run github:nixos/nixpkgs/pull/326102/head#filius --extra-experimental-features nix-command --extra-experimental-features flakes 1> /dev/null 2> /dev/null &";
-  };
-  
   services.ollama = {
-    #package = pkgs.unstable.ollama; # Uncomment if you want to use the unstable channel, see https://fictionbecomesfact.com/nixos-unstable-channel
+    package = pkgs.unstable.ollama; # Uncomment if you want to use the unstable channel, see https://fictionbecomesfact.com/nixos-unstable-channel
     enable = true;
-    #enable = false;
     #acceleration = "cuda"; # Or "cuda" (NVidia) or "rocm" (AMD)
-    #environmentVariables = {
-      # HOME = "/home/ollama";
-      #OLLAMA_MODELS = "/home/nixos/ollama/models";
-      # OLLAMA_HOST = "0.0.0.0:11434"; # Make Ollama accesible outside of localhost
-      # OLLAMA_ORIGINS = "http://localhost:8080,http://192.168.0.10:*"; # Allow access, otherwise Ollama returns 403 forbidden due to CORS
-    #};
   };
 
   system.activationScripts = {
