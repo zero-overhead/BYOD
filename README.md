@@ -21,13 +21,26 @@ cd Downloads\NixOS-WSL-Launcher
 wsl -s NixOS
 ```
 
+Hat es funktioniert?
+
+```
+wsl --list
+```
+
 5. Schliesse nun die Windows-Kommandozeile.
 
 6. Starte die NixOS.app
 
-7. Hole dir die aktuelle Konfiguration
+Windows Start Menu -> tippe "wsl"
+
+Pinne diese Anwendung an die Taskleiste. (rechte Maustaste)
+
+8. Hole dir die aktuelle Konfiguration
 ```bash
 nix-shell -p git
+```
+
+```bash
 git clone --single-branch --branch wsl https://github.com/zero-overhead/BYOD
 ```
 
@@ -43,12 +56,21 @@ Falls du eine Nvidia- oder AMD-Grafikkarte besitzt, editiere die entsprechende Z
 9. Aktiviere die Konfiguration
 ```bash
 sudo nix-channel --update
+```
+
+```bash
 sudo nixos-rebuild switch
 ```
 
 10. Test
 
-Installiere zunächst mindestens ein Modell.
+Installiere zunächst mindestens ein einfaches, kleines Modell.
+
+```bash
+ollama pull qwen2:0.5b
+```
+
+oder
 
 ```bash
 ollama pull deepseek-coder:1.3b
@@ -59,7 +81,7 @@ Eine Übersicht der verfügbaren Modelle findest du unter https://ollama.com/mod
 Teste dann Folgendes:
 
 - ollama: ```ollama list``` und dann ```ollama run deepseek-coder:1.3b```
-- open-webui: copy/paste ```http://127.0.0.1:8080/``` in deinen Browser (bzw. ```10.0.2.2:8080``` aus einer VM)
+- open-webui: copy/paste ```http://127.0.0.1:8080/``` in deinen Browser (bzw. ```10.0.2.2:8080``` aus einer Virtual-Box-VM)
 
 ![open-webui](./open-webui.png)
 
