@@ -36,7 +36,7 @@ git clone --single-branch --branch wsl https://github.com/zero-overhead/BYOD
 sudo cp -r BYOD/con* /etc/nixos/
 ```
 
-Falls du eine Nvidia- oder AMD-Grafikkarte besitzt, und diese zur beschleunigten Berechnung nutzen möchtest, editiere die entsprechende Zeile in der Datei ```configuration.nix```.
+Falls du eine Nvidia- oder AMD-Grafikkarte besitzt, editiere die entsprechende Zeile ```services.ollama.acceleration``` in der Datei ```configuration.nix```.
 
 ```sudo nano /etc/nixos/configuration.nix```
 
