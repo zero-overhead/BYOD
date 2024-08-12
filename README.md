@@ -10,9 +10,9 @@ BYOD $\to$ heterogene Umgebung + WSL + NixOS $\to$ indentische Umgebung fürs Pr
 wsl --install --no-distribution
 ```
 
-3. Lade die Datei NixOS-WSL-Launcher.zip von https://github.com/nix-community/NixOS-WSL (the latest release -> Assets) und entpacke diese, bspw. im Ordner Downloads. Führe dann ff. Befehle aus
+3. Lade die Datei NixOS-WSL-Launcher.zip von https://github.com/nix-community/NixOS-WSL (the latest release -> Assets) und entpacke diese, bspw. im Ordner "C:\Program Files\NixOS-WSL-Launcher". Führe dann ff. Befehle aus
 ```bash
-cd Downloads\NixOS-WSL-Launcher
+cd "C:\Program Files\NixOS-WSL-Launcher"
 .\NixOS.exe install
 ```
 
