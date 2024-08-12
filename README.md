@@ -80,16 +80,16 @@ Eine Übersicht der verfügbaren Modelle findest du unter https://ollama.com/mod
 
 Teste dann Folgendes:
 
-- ollama: ```ollama list``` und dann ```ollama run deepseek-coder:1.3b```
+- ollama: ```ollama list``` und dann bspw. ```ollama run deepseek-coder:1.3b```, mit ```/bye``` verlässt du den Chat.
 - open-webui: copy/paste ```http://127.0.0.1:8080/``` in deinen Browser (bzw. ```10.0.2.2:8080``` aus einer Virtual-Box-VM)
 
 ![open-webui](./open-webui.png)
 
 Weitere Modelle kannst du auch mittels Open-WebUI über ```User -> Einstellungen -> Administrationsbereich -> Modelle``` hinzufügen. 
 
-- oterm: ```oterm``` - wenn du ein abgespecktes Interface zu Ollama bevorzugst.
+- oterm: teste das Programm ```oterm``` - für den Fall, dass du ein abgespecktes Interface zu Ollama bevorzugst.
 
-Ein Modell sollte sigifikannt kleiner sein, als der verfügbare Arbeitsspeicher.
+Hinweis: Ein Modell sollte sigifikannt kleiner sein, als der verfügbare Arbeitsspeicher.
 
 ![open-webui](./memory.png)
 
@@ -98,5 +98,7 @@ Verwende ```free -h --giga``` oder bspw. ```htop``` um diesen Wert für dich zu 
 ![open-webui](./htop.png)
 
 Falls du einen API-Key für bspw. OpenAI oder Mistral besitzt, füge diesen unter dem Punkt ```Verbindungen``` hinzu. Für Mistral lautet die URL bspw. https://api.mistral.ai/v1, für OpenAI hingegen https://api.openai.com/v1
+
+![open-webui](./api.png)
 
 Die Auslastung deines Windows-Host zeigt dir das Windows-Programm "Task Manager".
