@@ -9,12 +9,12 @@ git clone https://github.com/zero-overhead/BYOD
 cd BYOD
 ```
 
-nur für VirtualBox:
+Nur für VirtualBox:
 ```bash
 sudo cp configuration_VirtualBox.nix /etc/nixos/configuration.nix
 ```
 
-nur für UTM:
+Nur für UTM:
 
 ```bash
 sudo cp configuration_UTM.nix /etc/nixos/configuration.nix
@@ -28,6 +28,8 @@ sudo nixos-rebuild switch --upgrade --profile-name "Programmieren"
 
 sudo reboot
 ```
+
+Den Ordner ```BYOD``` benötigst du nicht mehr und kannst ihn löschen.
 
 Falls wieder Erwarten die neue Konfiguration nicht korrekt startet oder andere Problem macht, wähle beim Starten der VM im Boot-Menü den vorletzten Eintrag aus. Führe dann diesen Befehl aus, um die Änderungen rückgängig zu machen:
 
