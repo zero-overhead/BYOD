@@ -180,6 +180,13 @@ time.timeZone = "Europe/Zurich";
   
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  # Optimising the NixOS store with automatic options. This will optimise the
+  # store on every build which may slow down builds. The alternativ is to set
+  # them on specific dates like this:
+  # nix.optimise.automatic = true;
+  # nix.optimise.dates = [ "03:45" ]; # Optional; allows customizing schedule
+  nix.settings.auto-optimise-store = true;
+
 # Enable the OpenSSH daemon.
 # services.openssh.enable = true;
 

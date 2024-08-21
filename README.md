@@ -1,7 +1,7 @@
 # BYOD + VirtualBox/UTM + NixOS = Unified Programming Environment
 
 ## Aktualisierung
-Falls du schon eine NixOS-VM besitzt, und diese aktualisieren möchtest, führe ff. Befehle in einem Terminal von innerhalb der VM aus.
+Falls du schon eine NixOS-VM besitzt, und diese nun aktualisieren möchtest, führe folgende Befehle in einem Terminal (innerhalb der VM) aus.
 
 ```bash
 git clone https://github.com/zero-overhead/BYOD
@@ -9,15 +9,30 @@ git clone https://github.com/zero-overhead/BYOD
 cd BYOD
 ```
 
-### VirtualBox
+nur für VirtualBox:
 ```bash
-cp configuration_VirtualBox.nix /etc/nixos/configuration.nix
+sudo cp configuration_VirtualBox.nix /etc/nixos/configuration.nix
 ```
 
-### UTM
+nur für UTM:
 
 ```bash
-cp configuration_UTM.nix /etc/nixos/configuration.nix
+sudo cp configuration_UTM.nix /etc/nixos/configuration.nix
+```
+
+Für alle:
+```bash
+sudo nix-channel --add https://channels.nixos.org/nixos-24.05 nixos
+
+sudo nixos-rebuild switch --upgrade --profile-name "Programmieren"
+
+sudo reboot
+```
+
+Falls wieder Erwarten die neue Konfiguration nicht korrekt startet oder andere Problem macht, wähle beim Starten der VM im Boot-Menü den vorletzten Eintrag aus. Führe dann diesen Befehl aus, um die Änderungen rückgängig zu machen:
+
+```bash
+sudo nixos-rebuild switch --rollback
 ```
 
 ## Erstinstallation
@@ -41,11 +56,10 @@ Mac: öffne den Finder, klicke dann im Menü "Einstellungen -> Erweitert" und ak
 
 - Installieren von UTM. Du findest den Download unter https://mac.getutm.app/
 - Kopiere die Datei ```Programmieren.utm``` im Ordner ```SuS-Setup-Mac``` vom USB-Stick auf deinen Computer nach bspw. ```Downloads```.
+- Lösche die Datei ```Programmieren.utm``` bis zum Ende des Schuljahres nicht aus dem Download-Ordner. 
 - Öffne die Datei ```Programmieren.utm``` im Ordner ```Downloads``` in UTM unter "Neue Virtuelle Maschine erstellen -> öffnen" und folge den Anweisungen.
 - Starte die VM
 - Nutzer/Passwort: demo/demo
-- Lösche die Datei ```Programmieren.utm``` bis zum Ende des Schuljahres nicht aus dem Download-Ordner. 
-
 
 ### Windows ARM-CPU (Snapdragon)
 siehe "Bei mir funktioniert das nicht ..." am Ende dieses Dokuments
