@@ -1,7 +1,8 @@
 # BYOD + VirtualBox/UTM + NixOS = Unified Programming Environment
 
 ## Aktualisierung
-Falls du schon eine NixOS-VM besitzt, und diese nun aktualisieren möchtest, führe folgende Befehle in einem Terminal (innerhalb der VM) aus.
+Falls du schon eine NixOS-VM besitzt, und diese nun aktualisieren möchtest, führe folgende Befehle in einem Terminal innerhalb der NixOS-VM, die du aktualisieren 
+möchtest, aus.
 
 ```bash
 git clone https://github.com/zero-overhead/BYOD
@@ -42,6 +43,8 @@ Falls wieder Erwarten die neue Konfiguration nicht korrekt startet oder andere P
 ```bash
 sudo nixos-rebuild switch --rollback
 ```
+
+![plot](./NixOS-updating-system.png)
 
 ## Erstinstallation
 
