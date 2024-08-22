@@ -31,10 +31,8 @@ sudo nixos-rebuild boot --upgrade --profile-name "Programmieren" -I nixos-config
 ```
 
 ```bash
-reboot
+sudo reboot
 ```
-
-Den Ordner ```BYOD``` benötigst du nicht mehr und kannst ihn löschen.
 
 Falls wieder Erwarten die neue Konfiguration nicht korrekt startet oder andere Problem macht, wähle beim Starten der VM im Boot-Menü den vorletzten Eintrag aus. Führe dann diesen Befehl aus, um die Änderungen rückgängig zu machen:
 
@@ -42,7 +40,11 @@ Falls wieder Erwarten die neue Konfiguration nicht korrekt startet oder andere P
 sudo nixos-rebuild switch --rollback
 ```
 
+Der Ganze könnte ungefähr so aussehen:
+
 ![plot](./NixOS-updating-system.png)
+
+Den Ordner ```BYOD``` benötigst du nicht mehr und kannst ihn bei Gelegenheit löschen.
 
 ## Erstinstallation
 
