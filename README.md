@@ -7,33 +7,32 @@ Falls du schon eine NixOS-VM besitzt, und diese nun aktualisieren möchtest, fü
 git clone https://github.com/zero-overhead/BYOD
 ```
 
-```bash
-cd BYOD
-```
-
 ACHTUNG: Das Passwort des Nutzers demo lautet "demo". Bei der Eingabe des Passwords im Terminal wird aus Sicherheitsgründen nichts angezeigt.
 
 Nur für VirtualBox:
 ```bash
-sudo cp configuration_VirtualBox.nix /etc/nixos/configuration.nix
+export NIX_CONFIGURATION=BYOD/configuration_VirtualBox.nix
 ```
 
 Nur für UTM:
 ```bash
-sudo cp configuration_UTM.nix /etc/nixos/configuration.nix
+export NIX_CONFIGURATION=BYOD/configuration_UTM.nix
 ```
 
 Für alle:
+
+ACHTUNG: Das Passwort des Nutzers demo lautet "demo". Bei der Eingabe des Passwords im Terminal wird aus Sicherheitsgründen nichts angezeigt.
+
 ```bash
 sudo nix-channel --add https://channels.nixos.org/nixos-24.05 nixos
 ```
 
 ```bash
-sudo nixos-rebuild switch --upgrade --profile-name "Programmieren"
+sudo nixos-rebuild boot --upgrade --profile-name "Programmieren" -I nixos-config=$NIX_CONFIGURATION
 ```
 
 ```bash
-sudo reboot
+reboot
 ```
 
 Den Ordner ```BYOD``` benötigst du nicht mehr und kannst ihn löschen.
