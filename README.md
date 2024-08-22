@@ -9,6 +9,8 @@ git clone https://github.com/zero-overhead/BYOD
 cd BYOD
 ```
 
+ACHTUNG: Das Passwort des Nutzers demo lautet "demo". Bei der Eingabe des Passwords im Terminal wird aus Sicherheitsgründen nichts angezeigt.
+
 Nur für VirtualBox:
 ```bash
 sudo cp configuration_VirtualBox.nix /etc/nixos/configuration.nix
