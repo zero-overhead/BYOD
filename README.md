@@ -5,7 +5,9 @@ Falls du schon eine NixOS-VM besitzt, und diese nun aktualisieren möchtest, fü
 
 ```bash
 git clone https://github.com/zero-overhead/BYOD
+```
 
+```bash
 cd BYOD
 ```
 
@@ -17,7 +19,6 @@ sudo cp configuration_VirtualBox.nix /etc/nixos/configuration.nix
 ```
 
 Nur für UTM:
-
 ```bash
 sudo cp configuration_UTM.nix /etc/nixos/configuration.nix
 ```
@@ -25,9 +26,13 @@ sudo cp configuration_UTM.nix /etc/nixos/configuration.nix
 Für alle:
 ```bash
 sudo nix-channel --add https://channels.nixos.org/nixos-24.05 nixos
+```
 
+```bash
 sudo nixos-rebuild switch --upgrade --profile-name "Programmieren"
+```
 
+```bash
 sudo reboot
 ```
 
