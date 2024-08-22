@@ -8,8 +8,6 @@ möchtest, aus.
 git clone https://github.com/zero-overhead/BYOD
 ```
 
-ACHTUNG: Das Passwort des Nutzers demo lautet "demo". Bei der Eingabe des Passwords im Terminal wird aus Sicherheitsgründen nichts angezeigt.
-
 Nur für VirtualBox:
 ```bash
 export NIX_CONFIGURATION=BYOD/configuration_VirtualBox.nix
