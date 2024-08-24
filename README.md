@@ -8,14 +8,22 @@ möchtest, aus.
 git clone https://github.com/zero-overhead/BYOD
 ```
 
+```bash
+cd BYOD
+```
+
 Nur für VirtualBox:
 ```bash
-export NIX_CONFIGURATION=BYOD/configuration_VirtualBox.nix
+export NIX_CONFIGURATION=BYOD/VM_VirtualBox.nix
 ```
+
+Nur für VirtualBox auf Computern mit sehr hoher Bildschirmauflösung:
+```bash
+export NIX_CONFIGURATION=VM_VirtualBox_HiDPI.nix
 
 Nur für UTM:
 ```bash
-export NIX_CONFIGURATION=BYOD/configuration_UTM.nix
+export NIX_CONFIGURATION=VM_UTM.nix
 ```
 
 Für alle:
@@ -24,6 +32,10 @@ ACHTUNG: Das Passwort des Nutzers demo lautet "demo". Bei der Eingabe des Passwo
 
 ```bash
 sudo nix-channel --add https://channels.nixos.org/nixos-24.05 nixos
+```
+
+```bash
+sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos-unstable
 ```
 
 ```bash
