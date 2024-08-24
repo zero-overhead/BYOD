@@ -20,6 +20,7 @@ export NIX_CONFIGURATION=BYOD/VM_VirtualBox.nix
 Nur für VirtualBox auf Computern mit sehr hoher Bildschirmauflösung:
 ```bash
 export NIX_CONFIGURATION=VM_VirtualBox_HiDPI.nix
+```
 
 Nur für UTM:
 ```bash
