@@ -14,7 +14,7 @@ cd BYOD
 
 Nur für VirtualBox:
 ```bash
-export NIX_CONFIGURATION=BYOD/VM_VirtualBox.nix
+export NIX_CONFIGURATION=VM_VirtualBox.nix
 ```
 
 Nur für VirtualBox auf Computern mit sehr hoher Bildschirmauflösung:
@@ -32,6 +32,12 @@ Für alle:
 ACHTUNG: Das Passwort des Nutzers demo lautet "demo". Bei der Eingabe des Passwords im Terminal wird aus Sicherheitsgründen nichts angezeigt.
 
 ```bash
+sudo nixos-rebuild boot --upgrade --profile-name "Programmieren" -I nixos-config=$NIX_CONFIGURATION
+```
+
+Falls hier ein Fehler auftritt, stellen wir mit den folgenden zwei Befehlen sicher, dass die Packetquellen korrekt sind.
+
+```bash
 sudo nix-channel --add https://channels.nixos.org/nixos-24.05 nixos
 ```
 
@@ -40,9 +46,12 @@ sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos-unstable
 ```
 
 ```bash
-sudo nixos-rebuild boot --upgrade --profile-name "Programmieren" -I nixos-config=$NIX_CONFIGURATION
+sudo nix-channel --update
 ```
 
+Nun führen wir den nixos-rebuild-Befehl erneut aus (2x Pfeiltaste nach oben im Terminal drücken).
+
+Zuletzt starten wir die VM neu.
 ```bash
 sudo reboot
 ```

@@ -9,7 +9,6 @@
       ./only_HiDPI.nix
       ./desktop.nix
       ./yubikey.nix
-      ./users.nix
     ];
 
 }

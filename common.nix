@@ -32,6 +32,12 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
+  # Let demo build as a trusted user.
+  nix.settings.trusted-users = [ "demo" ];
+
+  # Use zsh
+  users.defaultUserShell = pkgs.zsh;
+
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
 

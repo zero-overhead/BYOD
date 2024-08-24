@@ -1,12 +1,6 @@
 { config, lib, pkgs, ... }:
 
 {
-  # Let demo build as a trusted user.
-  nix.settings.trusted-users = [ "demo" ];
-
-  # USe zsh
-  users.defaultUserShell = pkgs.zsh;
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.demo = {
     isNormalUser = true;

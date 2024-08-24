@@ -8,6 +8,5 @@
       ./only_VirtualBox.nix
       ./desktop.nix
       ./yubikey.nix
-      ./users.nix
   ];
 }
