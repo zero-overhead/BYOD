@@ -153,7 +153,7 @@ time.timeZone = "Europe/Zurich";
 
     # https://nixos.wiki/wiki/Games
     superTuxKart
-    #endless-sky
+    endless-sky
     freeciv
     #mindustry
     #xonotic
