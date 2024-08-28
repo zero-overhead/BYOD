@@ -145,6 +145,14 @@ time.timeZone = "Europe/Zurich";
     jdk
     openssl
     python3Full
+
+    # https://nixos.wiki/wiki/Games
+    superTuxKart
+    endless-sky
+    freeciv
+    mindustry
+    xonotic
+    openra
  ];
 
   #zef install Jupyter::Chatbook --serial
