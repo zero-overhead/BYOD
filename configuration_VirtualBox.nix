@@ -3,8 +3,8 @@
 {
   imports = [ <nixpkgs/nixos/modules/installer/virtualbox-demo.nix> ];
 
-  hardware.opengl.enable = true;
-  hardware.opengl.driSupport32Bit = true;
+  #hardware.opengl.enable = true;
+  #hardware.opengl.driSupport32Bit = true;
   #hardware.opengl.package = (import /srv/nixpkgs-mesa { }).pkgs.mesa.drivers;  
   
   # Let demo build as a trusted user.
@@ -153,11 +153,11 @@ time.timeZone = "Europe/Zurich";
 
     # https://nixos.wiki/wiki/Games
     superTuxKart
-    endless-sky
+    #endless-sky
     freeciv
-    mindustry
-    xonotic
-    openra
+    #mindustry
+    #xonotic
+    #openra
  ];
 
   #zef install Jupyter::Chatbook --serial

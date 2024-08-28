@@ -178,11 +178,11 @@
 
     # https://nixos.wiki/wiki/Games
     superTuxKart
-    endless-sky
+    #endless-sky
     freeciv
-    mindustry
-    xonotic
-    openra
+    #mindustry
+    #xonotic
+    #openra
   ];
 
   #zef install Jupyter::Chatbook --serial
