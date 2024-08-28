@@ -3,6 +3,10 @@
 {
   imports = [ <nixpkgs/nixos/modules/installer/virtualbox-demo.nix> ];
 
+  hardware.opengl.enable = true;
+  hardware.opengl.driSupport32Bit = true;
+  #hardware.opengl.package = (import /srv/nixpkgs-mesa { }).pkgs.mesa.drivers;  
+  
   # Let demo build as a trusted user.
   nix.settings.trusted-users = [ "demo" ];
 
@@ -131,6 +135,7 @@ time.timeZone = "Europe/Zurich";
     thefuck
     ffmpeg
     cmatrix
+    hollywood
     libsecret
  
     R
