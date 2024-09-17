@@ -119,6 +119,7 @@ time.timeZone = "Europe/Zurich";
     vscode-extensions.mhutchie.git-graph
     octave
     kate
+    kstars
 
     pandoc
     nano
@@ -152,10 +153,9 @@ time.timeZone = "Europe/Zurich";
     #freeciv
     oh-my-git
     pingus
-    kstars
     #hase
     wireworld
-    armagetronad
+    #armagetronad
  ];
 
   #zef install Jupyter::Chatbook --serial
