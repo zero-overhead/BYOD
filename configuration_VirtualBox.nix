@@ -7,7 +7,7 @@
   nix.settings.trusted-users = [ "demo" ];
 
   virtualisation.virtualbox.guest.enable = true;
-  virtualisation.virtualbox.guest.draganddrop = true;
+  virtualisation.virtualbox.guest.draganddrop = false;
   
   services.xserver.desktopManager.plasma5.enable = lib.mkForce false;
 
@@ -31,7 +31,7 @@
   # copy/paste from host needs spice-vdagend which does not work on wayland yet
   services.displayManager.sddm = {
     enable = true;
-    wayland.enable = false;
+    wayland.enable = lib.mkForce false;
   };
   services.desktopManager.plasma6.enable = true; 
  
@@ -145,6 +145,17 @@ time.timeZone = "Europe/Zurich";
     jdk
     openssl
     python3Full
+
+    # Games
+    #superTux
+    #extremetuxracer
+    #freeciv
+    oh-my-git
+    pingus
+    kstars
+    #hase
+    wireworld
+    armagetronad
  ];
 
   #zef install Jupyter::Chatbook --serial
