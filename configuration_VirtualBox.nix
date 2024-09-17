@@ -154,7 +154,7 @@ time.timeZone = "Europe/Zurich";
     oh-my-git
     pingus
     #hase
-    wireworld
+    #wireworld
     #armagetronad
  ];
 
