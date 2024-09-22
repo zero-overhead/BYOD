@@ -6,11 +6,13 @@
   # Let demo build as a trusted user.
   nix.settings.trusted-users = [ "demo" ];
 
+  # video and audi control
+  users.users.demo.extraGroups = [ "video" ];
+  #programs.light.enable = true;
+
   virtualisation.virtualbox.guest.enable = true;
   virtualisation.virtualbox.guest.draganddrop = false;
   
-  services.xserver.desktopManager.plasma5.enable = lib.mkForce false;
-
   # Select internationalisation properties.
   # i18n.defaultLocale = "en_US.UTF-8";
   i18n.defaultLocale = "de_CH.UTF-8";
@@ -22,26 +24,71 @@
     xkb = {
       layout = "ch";
     };
+    desktopManager = {
+      xterm.enable = false;
+      plasma5.enable = lib.mkForce false;
+    };
+
+    windowManager.i3 = {
+      enable = true;
+      extraPackages = with pkgs; [
+        dmenu #application launcher most people use
+        i3status # gives you the default i3 status bar
+        i3lock #default i3 screen locker
+        i3blocks #if you are planning on using i3blocks over i3status
+     ];
+    };
   };
+
+  # enable sway window manager
+  #programs.sway = {
+  #  enable = true;
+  #  wrapperFeatures.gtk = true;
+  #};
+
+  #programs.hyprland = {
+    # Install the packages from nixpkgs
+  #  enable = true;
+    # Whether to enable XWayland
+  #  xwayland.enable = true;
+  #};
+  # Optional, hint electron apps to use wayland:
+  #environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
+  # Enable the gnome-keyring secrets vault.
+  # Will be exposed through DBus to programs willing to store secrets.
+  #services.gnome.gnome-keyring.enable = true;
+
+  # kanshi systemd service - for sway
+  #systemd.user.services.kanshi = {
+  #  description = "kanshi daemon";
+  #  serviceConfig = {
+  #    Type = "simple";
+  #    ExecStart = ''${pkgs.kanshi}/bin/kanshi -c kanshi_config_file'';
+  #  };
+  #};
 
   # Configure console keymap
   console.keyMap = "sg";
 
   # https://nixos.wiki/wiki/KDE
   # copy/paste from host needs spice-vdagend which does not work on wayland yet
-  services.displayManager.sddm = {
-    enable = true;
-    wayland.enable = lib.mkForce false;
+  services.displayManager = {
+      #autoLogin.enable = lib.mkForce false;
+      autoLogin.enable = true;
+      autoLogin.user = "demo";
+      defaultSession = "plasmax11";
+      #defaultSession = "none+i3";
+
+      sddm = {
+        enable = true;
+        wayland.enable = lib.mkForce false;
+        #wayland.enable = true;
+        autoLogin.relogin = lib.mkForce false;
+      };
   };
   services.desktopManager.plasma6.enable = true; 
  
-  # Enable automatic login for the user.
-  services.displayManager = {
-    autoLogin.enable = true;
-    autoLogin.user = "demo";
-    defaultSession = "plasmax11";
-  };
-  
   # settings saved for some applications (gtk3 applications, firefox)
   programs.dconf.enable = true;
 
@@ -146,17 +193,28 @@ time.timeZone = "Europe/Zurich";
     jdk
     openssl
     python3Full
+    imagemagick
+    rofi
 
     # Games
-    #superTux
-    #extremetuxracer
-    #freeciv
+    superTux
+    #superTuxKart
+    extremetuxracer
+    freeciv
     oh-my-git
     pingus
-    #hase
-    #wireworld
-    #armagetronad
- ];
+    hase
+    wireworld
+    armagetronad
+
+    #kanshi # for sway
+    #polkit # handling access to keyboard
+    #pulseaudioFull # audio control sway
+    #grim # screenshot functionality
+    #slurp # screenshot functionality
+    #wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
+    #mako # notification system developed by swaywm maintainer
+];
 
   #zef install Jupyter::Chatbook --serial
   #jupyter-chatbook.raku --generate-config
