@@ -77,8 +77,8 @@
       #autoLogin.enable = lib.mkForce false;
       autoLogin.enable = true;
       autoLogin.user = "demo";
-      defaultSession = "plasmax11";
-      #defaultSession = "none+i3";
+      #defaultSession = "plasmax11";
+      defaultSession = "none+i3";
 
       sddm = {
         enable = true;
@@ -87,8 +87,11 @@
         autoLogin.relogin = lib.mkForce false;
       };
   };
-  services.desktopManager.plasma6.enable = true; 
- 
+  services.desktopManager.plasma6 = {
+      enable = true;
+      enableQt5Integration = false;
+  };
+
   # settings saved for some applications (gtk3 applications, firefox)
   programs.dconf.enable = true;
 
@@ -169,6 +172,7 @@ time.timeZone = "Europe/Zurich";
     kstars
 
     pandoc
+    feh
     nano
     bat
     fzf
@@ -180,6 +184,7 @@ time.timeZone = "Europe/Zurich";
     ffmpeg
     cmatrix
     libsecret
+    nextcloud-client
  
     R
     nodejs
