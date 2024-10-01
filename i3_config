@@ -17,6 +17,9 @@ bindsym --release $mod+t exec import "/home/$USER/Downloads/Screenshot_$(date +%
 #set screen resoltion
 exec --no-startup-id xrandr --output Virtual1 --mode 1920x1080 --dpi 120
 
+#set keyboard
+exec --no-startup-id setxkbmap -model apple -layout ch -variant de_mac
+
 # add background
 exec --no-startup-id feh --bg-scale /home/$USER/.wallpaper
 
