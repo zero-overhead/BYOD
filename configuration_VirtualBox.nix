@@ -108,7 +108,6 @@ time.timeZone = "Europe/Zurich";
     thunderbird
     libreoffice
     thonny
-    jupyter
     rstudio
     geogebra6
     arduino
@@ -145,7 +144,6 @@ time.timeZone = "Europe/Zurich";
     libgcc
     jdk
     openssl
-    python3Full
 
     # Games
     #superTux
@@ -156,6 +154,32 @@ time.timeZone = "Europe/Zurich";
     #hase
     #wireworld
     #armagetronad
+
+    (jupyter-all.withPackages(ps: with ps; [ 
+      pandas
+      requests
+      pip
+      wheel
+      numpy
+      keyboard
+      seaborn
+      jupytext
+      metakernel
+      jupyterlab-lsp
+      jedi-language-server
+      matplotlib
+      scikit-image
+      scikit-learn
+      scipy
+      pytest
+      pytest-cov
+      torch
+      torchvision
+      torchaudio
+      plotly
+      autograd
+      tqdm
+   ]))
  ];
 
   #zef install Jupyter::Chatbook --serial
@@ -189,6 +213,26 @@ time.timeZone = "Europe/Zurich";
       };
   };
   
+  # https://nixos.wiki/wiki/Fonts
+  fonts.packages = with pkgs; [
+	  nerdfonts
+          noto-fonts
+	  noto-fonts-cjk
+	  noto-fonts-emoji
+	  liberation_ttf
+	  fira-code
+	  fira-code-symbols
+	  mplus-outline-fonts.githubRelease
+	  dina-font
+	  proggyfonts
+          SourceCodePro-Regular
+          ubuntu_font_family
+  ];
+  # not all nerdfonts - just a few
+  #fonts.packages = with pkgs; [
+  #  (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
+  #];
+
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Optimising the NixOS store with automatic options. This will optimise the
