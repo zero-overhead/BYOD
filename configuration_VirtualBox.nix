@@ -105,6 +105,7 @@ time.timeZone = "Europe/Zurich";
 
     firefox
     chromium
+    tor-browser
     thunderbird
     libreoffice
     thonny
@@ -179,6 +180,8 @@ time.timeZone = "Europe/Zurich";
       plotly
       autograd
       tqdm
+      pycryptodome
+      python-gnupg
    ]))
  ];
 
@@ -225,7 +228,6 @@ time.timeZone = "Europe/Zurich";
 	  mplus-outline-fonts.githubRelease
 	  dina-font
 	  proggyfonts
-          SourceCodePro-Regular
           ubuntu_font_family
   ];
   # not all nerdfonts - just a few
