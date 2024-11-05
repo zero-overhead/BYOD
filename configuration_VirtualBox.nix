@@ -9,8 +9,6 @@
   virtualisation.virtualbox.guest.enable = true;
   virtualisation.virtualbox.guest.draganddrop = false;
   
-  services.xserver.desktopManager.plasma5.enable = lib.mkForce false;
-
   # Select internationalisation properties.
   # i18n.defaultLocale = "en_US.UTF-8";
   i18n.defaultLocale = "de_CH.UTF-8";
@@ -33,6 +31,7 @@
     enable = true;
     wayland.enable = lib.mkForce false;
   };
+  services.xserver.desktopManager.plasma5.enable = lib.mkForce false;
   services.desktopManager.plasma6.enable = true; 
  
   # Enable automatic login for the user.
@@ -127,7 +126,6 @@ time.timeZone = "Europe/Zurich";
     fzf
     tree
     navi
-    fzf
     direnv
     thefuck
     ffmpeg
