@@ -144,6 +144,9 @@ time.timeZone = "Europe/Zurich";
     jdk
     openssl
 
+    # Presentation
+    slides # Terminal + Markdown
+
     # Games
     #superTux
     #extremetuxracer
