@@ -42,7 +42,7 @@ sudo nixos-rebuild switch --rollback
 
 Der Ganze könnte ungefähr so aussehen:
 
-![plot](./NixOS-updating-system.png)
+![plot](./ressources/NixOS-updating-system.png)
 
 Den Ordner ```BYOD``` benötigst du nicht mehr und kannst ihn bei Gelegenheit löschen.
 

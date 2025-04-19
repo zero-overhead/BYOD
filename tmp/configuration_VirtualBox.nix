@@ -1,13 +1,19 @@
 { config, pkgs, lib,  ... }:
 
 {
-  imports = [ <nixpkgs/nixos/modules/installer/virtualbox-demo.nix> ];
+  imports = [ 
+    ./hardware-configuration.nix
+    #./virtualbox-guest.nix
+ ];
 
   # Let demo build as a trusted user.
   nix.settings.trusted-users = [ "demo" ];
 
-  virtualisation.virtualbox.guest.enable = true;
-  virtualisation.virtualbox.guest.draganddrop = false;
+  # video and audio and Robots on COM control
+  users.users.demo.extraGroups = [ "video" "audio" "dialout" ];
+
+  #virtualisation.virtualbox.guest.enable = true;
+  #virtualisation.virtualbox.guest.draganddrop = false;
   
   # Select internationalisation properties.
   # i18n.defaultLocale = "en_US.UTF-8";
@@ -20,27 +26,46 @@
     xkb = {
       layout = "ch";
     };
+    desktopManager = {
+      xterm.enable = false;
+      plasma5.enable = lib.mkForce false;
+    };
+
+    windowManager.i3 = {
+      enable = true;
+      extraPackages = with pkgs; [
+        dmenu #application launcher most people use
+        i3status # gives you the default i3 status bar
+        i3lock #default i3 screen locker
+        i3blocks #if you are planning on using i3blocks over i3status
+     ];
+    };
+  };
+
+  # https://nixos.wiki/wiki/KDE
+  # copy/paste from host needs spice-vdagend which does not work on wayland yet
+  services.displayManager = {
+      #autoLogin.enable = lib.mkForce false;
+      autoLogin.enable = true;
+      autoLogin.user = "demo";
+      defaultSession = "plasmax11";
+      #defaultSession = "none+i3";
+
+      sddm = {
+        enable = true;
+        wayland.enable = lib.mkForce false;
+        #wayland.enable = true;
+        autoLogin.relogin = lib.mkForce false;
+      };
+  };
+  services.desktopManager.plasma6 = {
+      enable = true;
+      enableQt5Integration = false;
   };
 
   # Configure console keymap
   console.keyMap = "sg";
 
-  # https://nixos.wiki/wiki/KDE
-  # copy/paste from host needs spice-vdagend which does not work on wayland yet
-  services.displayManager.sddm = {
-    enable = true;
-    wayland.enable = lib.mkForce false;
-  };
-  services.xserver.desktopManager.plasma5.enable = lib.mkForce false;
-  services.desktopManager.plasma6.enable = true; 
- 
-  # Enable automatic login for the user.
-  services.displayManager = {
-    autoLogin.enable = true;
-    autoLogin.user = "demo";
-    defaultSession = "plasmax11";
-  };
-  
   # settings saved for some applications (gtk3 applications, firefox)
   programs.dconf.enable = true;
 
@@ -108,6 +133,7 @@ time.timeZone = "Europe/Zurich";
     thunderbird
     libreoffice
     thonny
+    tigerjython
     rstudio
     geogebra6
     arduino
@@ -131,6 +157,7 @@ time.timeZone = "Europe/Zurich";
     ffmpeg
     cmatrix
     libsecret
+    btop
  
     R
     nodejs
@@ -183,6 +210,9 @@ time.timeZone = "Europe/Zurich";
       tqdm
       pycryptodome
       python-gnupg
+      pygame
+      tkinter
+      mariadb
    ]))
  ];
 
@@ -245,7 +275,11 @@ time.timeZone = "Europe/Zurich";
   # nix.optimise.dates = [ "03:45" ]; # Optional; allows customizing schedule
   nix.settings.auto-optimise-store = true;
 
-# Enable the OpenSSH daemon.
-# services.openssh.enable = true;
+  # Enable the OpenSSH daemon.
+  # services.openssh.enable = true;
+
+  # keep a NixOS system up-to-date automatically
+  #system.autoUpgrade.enable = true;
+  #system.autoUpgrade.allowReboot = true;
 
 }
