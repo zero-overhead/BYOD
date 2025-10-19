@@ -141,6 +141,9 @@ in
   # Enable xinput2 to improve touchscreen support and enable additional touchpad gestures and smooth scrolling.
   environment.sessionVariables.MOZ_USE_XINPUT2 = "1";
 
+  # Add ~/.local/bin/ to $PATH
+  environment.localBinInPath = true;
+
   # List services that you want to enable:
   # all about encryption
   #services.yubikey-agent.enable = true;
@@ -884,6 +887,11 @@ in
         saveNoDups = true;
         save = 100000;
       };
+      
+      # when used via Terminal we load the default Python-Version
+      #interactiveShellInit = ''
+      #  nix-shell $HOME/BYOD/nix-shells/python.nix
+      #'';
       
       initContent = lib.mkOrder 1200 ''
       # settings via configuration.nix
