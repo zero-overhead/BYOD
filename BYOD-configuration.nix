@@ -178,9 +178,15 @@ in
     nload
     htop
     btop
+    
     cowsay
     lolcat
     fortune
+    jp2a # jpg to ascii
+    cbonsai
+    aewan
+    figlet
+
     fastfetch
     jq
     nodejs
