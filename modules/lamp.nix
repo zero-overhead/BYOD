@@ -15,7 +15,9 @@ in
 	];
 
 	#server.document-root = "/srv/www";
-	#save as index.html in document-root: <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"\>\<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="refresh" content="0;url=http://127.0.0.1:8088/server-status" /></head><body></body></html>
+	#save as index.html in document-root:
+	#<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"\>\<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="refresh" content="0;url=http://127.0.0.1:8088/server-status" /></head><body></body></html> 
+	#sudo nano /srv/www/index.html
 	#status.status-url = "/server-status"
 	#status.statistics-url = "/server-statistics"
 	#status.config-url = "/server-config"
