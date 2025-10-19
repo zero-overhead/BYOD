@@ -52,9 +52,6 @@
     # }
     authentication = "jupyterhub.auth.DummyAuthenticator";    
     
-    #c.SystemdSpawner.isolate_tmp = True
-    #c.SystemdSpawner.isolate_devices = True
-      
     extraConfig = ''
       c.JupyterHub.ssl_key = '/root/.local/share/mkcert/localhost+2-key.pem'
       c.JupyterHub.ssl_cert = '/root/.local/share/mkcert/localhost+2.pem'
@@ -69,6 +66,8 @@
       c.SystemdSpawner.extra_paths = ['/run/current-system/sw/bin']
       c.SystemdSpawner.mem_limit = '3G'
       c.SystemdSpawner.cpu_limit = 4.0
+      c.SystemdSpawner.isolate_tmp = True
+      c.SystemdSpawner.isolate_devices = True
       c.SystemdSpawner.dynamic_users = True
     '';
 
