@@ -15,6 +15,6 @@
   IP adress  ip iw ifconfig or fastfetch
   System     htop btop nvitop
   Shutdown   sudo shutdown now -h
-  Update     curl -fsSL https://raw.githubusercontent.com/zero-overhead/BYOD/refs/heads/main/setup-server.sh | bash -s server/jupyterhub-lamp.nix
+  Update     curl -fsSL https://raw.githubusercontent.com/zero-overhead/BYOD/refs/heads/main/setup-server.sh | bash -s server/vm-headless-no-openwebui.nix
   '';
 }
