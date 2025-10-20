@@ -6,7 +6,7 @@
   # sudo mkcert -CAROOT
   # sudo mkcert localhost 127.0.0.1 ::1
   # sudo mv localhost*.pem /root/.local/share/mkcert/
-  security.pki.certificateFiles = [ /root/.local/share/mkcert/rootCA.pem ];
+  #security.pki.certificateFiles = [ /root/.local/share/mkcert/rootCA.pem ];
 
   # List packages installed in system profile. To search, run:
   # \$ nix search wget
