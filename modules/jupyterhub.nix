@@ -52,9 +52,10 @@
     # }
     authentication = "jupyterhub.auth.DummyAuthenticator";    
     
+    #c.JupyterHub.ssl_key = '/root/.local/share/mkcert/localhost+2-key.pem'
+    #c.JupyterHub.ssl_cert = '/root/.local/share/mkcert/localhost+2.pem'
+      
     extraConfig = ''
-      c.JupyterHub.ssl_key = '/root/.local/share/mkcert/localhost+2-key.pem'
-      c.JupyterHub.ssl_cert = '/root/.local/share/mkcert/localhost+2.pem'
       c.JupyterHub.admin_access = True
       c.Authenticator.allow_all = True
       c.Authenticator.delete_invalid_users = True
