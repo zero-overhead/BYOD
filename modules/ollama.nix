@@ -1,6 +1,7 @@
 { pkgs, ... }:
 
 {
+  # ollama run gemma3:270m
   services.ollama = {
     enable = true;
     #package = pkgs.ollama-cuda;
