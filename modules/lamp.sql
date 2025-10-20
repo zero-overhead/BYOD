@@ -4,6 +4,7 @@
 -- copy/paste
 USE mysql;
 
+DELETE FROM user WHERE user = "";
 CREATE USER 'db_user'@'%' IDENTIFIED BY 'pass';
 GRANT ALL PRIVILEGES ON `data%`.* TO 'db_user'@'%';
 GRANT SELECT, EXECUTE ON `messwerte%`.* TO 'db_user'@'%';
