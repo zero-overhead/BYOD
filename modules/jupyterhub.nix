@@ -61,6 +61,9 @@
       c.Authenticator.delete_invalid_users = True
       c.Authenticator.admin_users = { 'demo' 'mer' }
 
+      c.Spawner.http_timeout = 120
+      c.Spawner.start_timeout = 120
+
       c.LocalAuthenticator.create_system_users = True
       c.DummyAuthenticator.password = "go"
 
