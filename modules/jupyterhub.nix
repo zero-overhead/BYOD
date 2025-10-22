@@ -54,13 +54,14 @@
     
     #c.JupyterHub.ssl_key = '/root/.local/share/mkcert/localhost+2-key.pem'
     #c.JupyterHub.ssl_cert = '/root/.local/share/mkcert/localhost+2.pem'
-      
+
     extraConfig = ''
       c.JupyterHub.admin_access = True
       c.Authenticator.allow_all = True
       c.Authenticator.delete_invalid_users = True
       c.Authenticator.admin_users = { 'demo' 'mer' }
 
+      c.JupyterHub.tornado_settings = {'slow_spawn_timeout': 120}
       c.Spawner.http_timeout = 120
       c.Spawner.start_timeout = 120
 
