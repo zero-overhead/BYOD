@@ -127,6 +127,7 @@ in
     htop.enable = true;
     mtr.enable = true; # traceroute + ping
     direnv.enable = true;
+    npm.enable = true;
 
     firefox.enable = true;
     thunderbird.enable = true;
