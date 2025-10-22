@@ -8,7 +8,7 @@ Erzeuge eine neue oder - etwas einfacher für Einsteiger - importiere eine ferti
 
 |Virtual Box|UTM|
 |--|--|
-| ![virtualbox VM importieren](virtualbox-VM-importieren.png) | ![utm VM importieren](utm-VM-importieren.png)|
+| ![virtualbox VM importieren](img/virtualbox-VM-importieren.png) | ![utm VM importieren](img/utm-VM-importieren.png)|
 
 Starte deine VM und öffne ein Terminal.
 
