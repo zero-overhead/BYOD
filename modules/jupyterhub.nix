@@ -15,6 +15,7 @@
     texliveFull
     pandoc
     imagemagick
+    inkscape
     gnuplot
     ffmpeg
     mkcert
