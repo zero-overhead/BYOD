@@ -12,6 +12,7 @@
   # \$ nix search wget
   environment.systemPackages = with pkgs; [
   
+    jupyter
     texliveFull
     pandoc
     imagemagick
