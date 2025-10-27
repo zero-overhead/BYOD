@@ -129,13 +129,15 @@
             "HIST_IGNORE_ALL_DUPS"
           ];
           loginShellInit = ''
-          sleep 7
+          sleep 10
           fastfetch
           echo ----
           echo use 'btop' or 'htop' or 'nvitop' to monitor the system
           echo use 'ip' or 'iw' or 'ifconfig' to get network info
           echo use 'sudo shutdown now -h' to shutdown the system
           echo ----
+          sleep 60
+          btop
           '';
           shellAliases = {
           #  ll = "ls -l";
