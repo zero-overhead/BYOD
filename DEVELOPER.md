@@ -1,3 +1,18 @@
+# Hinweise und Notizen
+
+## Tiny File Manager
+```
+cd /srv/www
+sudo git clone https://github.com/prasathmani/tinyfilemanager.git
+sudo git checkout offline
+sudo echo '<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"\>\<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="refresh" content="0;url=http://127.0.0.1:8088/tinyfilemanager/tinyfilemanager.php" /></head><body></body></html>' > /srv/www/tinyfilemanger/index.html
+sudo echo "<?php $auth_users = array('demo' => '$2y$10$9IY322ew1LrIwn1sFWXF0.lwYLX9D25NO8m7/YENgeXKIkiCdFE5y'); $default_timezone = 'Europe/Zurich'; $directories_users = array('demo' => '/home/demo/public_html'); ?>" > /srv/www/tinyfilemanger/config.php
+mkdir /home/demo/public_html
+sudo chmod 777 /home/demo/public_html
+```
+
+## Update
+
 ```bash
 curl -H 'Pragma: no-cache' -fsSL https://raw.githubusercontent.com/zero-overhead/BYOD/refs/heads/main/setup-server.sh | bash -s server/x86_64-headless-nvidia-52-61.nix
 ```
