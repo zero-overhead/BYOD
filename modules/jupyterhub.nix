@@ -10,6 +10,59 @@ let
         jturtle = pyfinal.callPackage ../nix-shells/extra-packages/jturtle.nix { };
         jupyterlab-rise = pyfinal.callPackage ../nix-shells/extra-packages/jupyterlab-rise.nix { };
         jupyterlab-mathjax3 = pyfinal.callPackage ../nix-shells/extra-packages/jupyterlab-mathjax3.nix { };
+        
+        autograd
+        bokeh # interactive plots
+        bokeh-sampledata
+        distutils
+        hf-xet
+        ipydatawidgets
+        ipykernel
+        ipympl # jupyter lab matplotlib extension
+        ipython
+        ipywidgets
+        jedi-language-server
+        jupyter-book
+        jupyterlab
+        jupyterlab-git
+        jupyterlab-lsp
+        jupyterlab-widgets
+        #jupyterlab-language-pack-de-DE
+        jupytext
+        keyboard
+        litellm
+        mariadb
+        matplotlib
+        metakernel
+        mysql-connector
+        numpy
+        numpy-stl
+        ollama
+        pandas
+        pillow
+        pip
+        plotly
+        prettytable
+        pycryptodome
+        pygame-ce
+        pylint
+        pytest
+        pytest-cov
+        python-gnupg
+        requests
+        scikit-image
+        scikit-learn
+        scipy
+        seaborn
+        setuptools
+        shapely
+        tabulate
+        tkinter
+        torch
+        torchaudio
+        torchvision
+        tqdm
+        wheel
       };
     };
 in
@@ -92,125 +145,11 @@ in
       c.SystemdSpawner.dynamic_users = True
     '';
 
-    jupyterlabEnv = python.withPackages (p: with p; [
-        autograd
-        bokeh # interactive plots
-        bokeh-sampledata
-        distutils
-        hf-xet
-        ipydatawidgets
-        ipykernel
-        ipympl # jupyter lab matplotlib extension
-        ipython
-        ipywidgets
-        jedi-language-server
-        jturtle
-        jupyter-book
-        jupyterlab
-        jupyterlab-git
-        jupyterlab-lsp
-        jupyterlab-rise
-        jupyterlab-widgets
-        #jupyterlab-language-pack-de-DE
-        jupytext
-        keyboard
-        litellm
-        mariadb
-        matplotlib
-        metakernel
-        mysql-connector
-        numpy
-        numpy-stl
-        ollama
-        pandas
-        pedal
-        pgzero
-        pillow
-        pip
-        plotly
-        prettytable
-        pycryptodome
-        pygame-ce
-        pylint
-        pytest
-        pytest-cov
-        python-gnupg
-        requests
-        scikit-image
-        scikit-learn
-        scipy
-        seaborn
-        setuptools
-        shapely
-        tabulate
-        tkinter
-        torch
-        torchaudio
-        torchvision
-        tqdm
-        wheel
-    ]);
+    jupyterlabEnv = python;
   
     kernels = {
       python3 = let
-        env = (python.withPackages (pythonPackages: with pythonPackages; [
-                autograd
-                bokeh # interactive plots
-                bokeh-sampledata
-                distutils
-                hf-xet
-                ipydatawidgets
-                ipykernel
-                ipympl # jupyter lab matplotlib extension
-                ipython
-                ipywidgets
-                jedi-language-server
-                jturtle
-                jupyter-book
-                jupyterlab
-                jupyterlab-git
-                jupyterlab-lsp
-                jupyterlab-rise
-                jupyterlab-widgets
-                #jupyterlab-language-pack-de-DE
-                jupytext
-                keyboard
-                litellm
-                mariadb
-                matplotlib
-                metakernel
-                mysql-connector
-                numpy
-                numpy-stl
-                ollama
-                pandas
-                pedal
-                pgzero
-                pillow
-                pip
-                plotly
-                prettytable
-                pycryptodome
-                pygame-ce
-                pylint
-                pytest
-                pytest-cov
-                python-gnupg
-                requests
-                scikit-image
-                scikit-learn
-                scipy
-                seaborn
-                setuptools
-                shapely
-                tabulate
-                tkinter
-                torch
-                torchaudio
-                torchvision
-                tqdm
-                wheel
-              ]));
+        env = python;
         in {
           displayName = "Python 3";
           argv = [
