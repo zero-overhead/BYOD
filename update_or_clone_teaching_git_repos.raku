@@ -80,7 +80,10 @@ for %repos.kv -> $repo, %details {
     
     my $auth = $token-value ~~ Str ?? $token-value ~ "@" !! "";
     my $url = join "/", ("https:/", $auth ~ %details<url>, %details<user>, $repo);
-    my $cmd = "git clone --depth 1 --recurse-submodules $url";
+    my $cmd-reset = ( 
+                "git clone --depth 1 --recurse-submodules $url",
+                'git config set advice.ignoredHook false'
+    ).join(" && "); # execute next command only when previous command was successfull
     #note $cmd;
     indir $DOCUMENTS, {
       shell $cmd;
