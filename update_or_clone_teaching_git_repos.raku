@@ -5,17 +5,17 @@
 # auth token for repos must be environment variables (export TOKEN_NAME=....) 
 # have the same name as the repo, except all upper case and all - replaced by _
 my %repos =
-  edu-public-jupyter-notebooks => {
+  'edu-public-jupyter-notebooks' => {
     url => "github.com",
     user => "rcmlz",
     private => False
   },
-  python-course => {
+  'python-course' => {
     url => "github.com",
     user => "zero-overhead",
     private => False
   },
-  inf-schule.de => {
+  'inf-schule.de' => {
     url => "github.com",
     user => "zero-overhead",
     private => False
