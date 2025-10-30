@@ -80,7 +80,9 @@ in
       c.JupyterHub.tornado_settings = {'slow_spawn_timeout': 120}
       c.Spawner.http_timeout = 120
       c.Spawner.start_timeout = 120
-
+      
+      c.NotebookApp.ip = '*'
+      
       c.LocalAuthenticator.create_system_users = True
       c.DummyAuthenticator.password = "go"
 
