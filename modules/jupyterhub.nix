@@ -1,5 +1,18 @@
 { pkgs, lib, ... }:
-
+let
+    # https://wiki.nixos.org/wiki/Python
+    python = pkgs.python3.override {
+      self = python;
+      packageOverrides = pyfinal: pyprev: {
+        # dieses Python-Packete exitieren leider nicht in search.nixos.org - deshalb müssen wir sie selbst bauen
+        pedal = pyfinal.callPackage ../nix-shells/extra-packages/pedal.nix { };
+        pgzero = pyfinal.callPackage ../nix-shells/extra-packages/pgzero.nix { };
+        jturtle = pyfinal.callPackage ../nix-shells/extra-packages/jturtle.nix { };
+        jupyterlab-rise = pyfinal.callPackage ../nix-shells/extra-packages/jupyterlab-rise.nix { };
+        jupyterlab-mathjax3 = pyfinal.callPackage ../nix-shells/extra-packages/jupyterlab-mathjax3.nix { };
+      };
+    };
+in
 {
   # nix-shell -p mkcert
   # sudo mkcert -install
@@ -12,7 +25,7 @@
   # \$ nix search wget
   environment.systemPackages = with pkgs; [
   
-    jupyter
+    python
     texliveFull
     pandoc
     imagemagick
@@ -89,46 +102,63 @@
   
     kernels = {
       python3 = let
-        env = (pkgs.python3.withPackages (pythonPackages: with pythonPackages; [
-                jedi-language-server
-                ipykernel
+        env = (python.withPackages (pythonPackages: with pythonPackages; [
+                autograd
                 bokeh # interactive plots
                 bokeh-sampledata
+                distutils
                 hf-xet
-                ipython
-                ipympl # jupyter lab matplotlib extension
-                ipywidgets
                 ipydatawidgets
+                ipykernel
+                ipympl # jupyter lab matplotlib extension
+                ipython
+                ipywidgets
+                jedi-language-server
+                jturtle
                 jupyter-book
+                jupyterlab
+                jupyterlab-git
+                jupyterlab-lsp
+                jupyterlab-rise
+                jupyterlab-widgets
+                #jupyterlab-language-pack-de-DE
                 jupytext
                 keyboard
                 litellm
-                matplotlib
                 mariadb
+                matplotlib
                 metakernel
                 mysql-connector
                 numpy
+                numpy-stl
                 ollama
                 pandas
+                pedal
+                pgzero
                 pillow
                 pip
                 plotly
                 prettytable
                 pycryptodome
+                pygame-ce
                 pylint
+                pytest
+                pytest-cov
+                python-gnupg
                 requests
-                seaborn
-                tabulate
-                tkinter
-                wheel
                 scikit-image
                 scikit-learn
                 scipy
-                pytest
-                pytest-cov
+                seaborn
+                setuptools
+                shapely
+                tabulate
+                tkinter
                 torch
-                torchvision
                 torchaudio
+                torchvision
+                tqdm
+                wheel
               ]));
         in {
           displayName = "Python 3";
