@@ -82,6 +82,8 @@ in
       c.Spawner.start_timeout = 120
       
       c.NotebookApp.ip = '*'
+      c.Spawner.args = ['--NotebookApp.allow_origin=*']
+      c.JupyterHub.tornado_settings = {'headers': {'Content-Security-Policy': "frame-ancestors * 'self' "}}
       
       c.LocalAuthenticator.create_system_users = True
       c.DummyAuthenticator.password = "go"
