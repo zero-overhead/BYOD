@@ -92,7 +92,7 @@ in
       c.SystemdSpawner.dynamic_users = True
     '';
 
-    jupyterlabEnv = pkgs.python3.withPackages (p: with p; [
+    jupyterlabEnv = python.withPackages (p: with p; [
        jupyterhub
        jupyterlab
        jupyterlab-git
