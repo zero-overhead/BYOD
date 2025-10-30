@@ -1,8 +1,8 @@
 { pkgs, lib, ... }:
 let
     # https://wiki.nixos.org/wiki/Python
-    python = pkgs.python3.override {
-      self = python;
+    my-python = pkgs.python3.override {
+      self = my-python;
       packageOverrides = pyfinal: pyprev: {
         # dieses Python-Packete exitieren leider nicht in search.nixos.org - deshalb müssen wir sie selbst bauen
         pedal = pyfinal.callPackage ../nix-shells/extra-packages/pedal.nix { };
@@ -25,7 +25,7 @@ in
   # \$ nix search wget
   environment.systemPackages = with pkgs; [
   
-    python
+    my-python
     jupyter
     texliveFull
     pandoc
@@ -92,19 +92,18 @@ in
       c.SystemdSpawner.dynamic_users = True
     '';
 
-    jupyterlabEnv = python.withPackages (p: with p; [
+    jupyterlabEnv = my-python.withPackages (p: with p; [
        jupyterhub
        jupyterlab
        jupyterlab-git
        jupyterlab-lsp
-       jupyterlab-rise
        jupyterlab-widgets
 #       jupyterlab-execute-time
     ]);
   
     kernels = {
       python3 = let
-        env = (python.withPackages (pythonPackages: with pythonPackages; [
+        env = (my-python.withPackages (pythonPackages: with pythonPackages; [
                 autograd
                 bokeh # interactive plots
                 bokeh-sampledata
