@@ -77,13 +77,8 @@ in
       c.Authenticator.delete_invalid_users = True
       c.Authenticator.admin_users = { 'demo' 'mer' }
 
-      c.JupyterHub.tornado_settings = {'slow_spawn_timeout': 120}
       c.Spawner.http_timeout = 120
       c.Spawner.start_timeout = 120
-      
-      c.NotebookApp.ip = '*'
-      c.Spawner.args = ['--NotebookApp.allow_origin=*']
-      c.JupyterHub.tornado_settings = {'headers': {'Content-Security-Policy': "frame-ancestors * 'self' "}}
       
       c.LocalAuthenticator.create_system_users = True
       c.DummyAuthenticator.password = "go"
@@ -94,6 +89,9 @@ in
       c.SystemdSpawner.isolate_tmp = True
       c.SystemdSpawner.isolate_devices = True
       c.SystemdSpawner.dynamic_users = True
+      
+      c.SystemdSpawner.unit_extra_properties = {'headers': {'Content-Security-Policy': "frame-ancestors * 'self' "}}
+      c.ServerApp.tornado_settings = {"headers": {"Content-Security-Policy": "frame-ancestors * 'self' "}}
     '';
 
     jupyterlabEnv = my-python.withPackages (p: with p; [
