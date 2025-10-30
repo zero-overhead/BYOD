@@ -21,7 +21,9 @@ my %repos =
     private => False,
     extra_init_cmd => ( 
                 'git config --global advice.ignoredHook false',
-                'git config --global http.postBuffer 157286400',
+                'git config --global http.postBuffer 157286400'
+    ),
+    extra_post-clone_cmd => ( 
                 'git lfs install'
     )
   }
@@ -86,15 +88,22 @@ for %repos.kv -> $repo, %details {
     my $auth = $token-value ~~ Str ?? $token-value ~ "@" !! "";
     my $url = join "/", ("https:/", $auth ~ %details<url>, %details<user>, $repo);
     my @extra-cmd = |%details<extra_init_cmd> if %details<extra_init_cmd>:exists;
-    my $cmd = ( 
+    my $cmd-init = ( 
                 "git clone --depth 1 --recurse-submodules $url",
                 |@extra-cmd
+    ).join(" && "); # execute next command only when previous command was successfull
+    
+    my @extra-post-clone-cmd = |%details<extra_post-clone_cmd> if %details<extra_post-clone_cmd>:exists;
+    my $cmd-post-clone = ( 
+                "cd $repo-dir",
+                |@extra-post-clone-cmd
     ).join(" && "); # execute next command only when previous command was successfull
     
     #note $cmd;
     
     indir $DOCUMENTS, {
-      shell $cmd;
+      shell $cmd-init;
+      shell $cmd-post-clone;
     }, w => True;
   }
 }
