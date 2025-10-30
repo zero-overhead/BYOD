@@ -89,9 +89,6 @@ in
       c.SystemdSpawner.isolate_tmp = True
       c.SystemdSpawner.isolate_devices = True
       c.SystemdSpawner.dynamic_users = True
-      
-      c.SystemdSpawner.unit_extra_properties = {'headers': {'Content-Security-Policy': "frame-ancestors * 'self' "}}
-      c.ServerApp.tornado_settings = {"headers": {"Content-Security-Policy": "frame-ancestors * 'self' "}}
     '';
 
     jupyterlabEnv = my-python.withPackages (p: with p; [
