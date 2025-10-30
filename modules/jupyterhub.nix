@@ -12,64 +12,6 @@ let
         jupyterlab-mathjax3 = pyfinal.callPackage ../nix-shells/extra-packages/jupyterlab-mathjax3.nix { };
       };
     };
-    my-env = python.withPackages (p: with p; [
-        autograd
-        bokeh # interactive plots
-        bokeh-sampledata
-        distutils
-        hf-xet
-        ipydatawidgets
-        ipykernel
-        ipympl # jupyter lab matplotlib extension
-        ipython
-        ipywidgets
-        jedi-language-server
-        jturtle
-        jupyter-book
-        jupyterlab
-        jupyterlab-git
-        jupyterlab-lsp
-        jupyterlab-rise
-        jupyterlab-widgets
-        #jupyterlab-language-pack-de-DE
-        jupytext
-        keyboard
-        litellm
-        mariadb
-        matplotlib
-        metakernel
-        mysql-connector
-        numpy
-        numpy-stl
-        ollama
-        pandas
-        pedal
-        pgzero
-        pillow
-        pip
-        plotly
-        prettytable
-        pycryptodome
-        pygame-ce
-        pylint
-        pytest
-        pytest-cov
-        python-gnupg
-        requests
-        scikit-image
-        scikit-learn
-        scipy
-        seaborn
-        setuptools
-        shapely
-        tabulate
-        tkinter
-        torch
-        torchaudio
-        torchvision
-        tqdm
-        wheel
-        ]);
 in
 {
   # nix-shell -p mkcert
@@ -83,7 +25,8 @@ in
   # \$ nix search wget
   environment.systemPackages = with pkgs; [
   
-    my-env
+    python
+    jupyter
     texliveFull
     pandoc
     imagemagick
@@ -149,11 +92,76 @@ in
       c.SystemdSpawner.dynamic_users = True
     '';
 
-    jupyterlabEnv = my-env;
+    jupyterlabEnv = pkgs.python3.withPackages (p: with p; [
+       jupyterhub
+       jupyterlab
+       jupyterlab-git
+       jupyterlab-lsp
+       jupyterlab-rise
+       jupyterlab-widgets
+#       jupyterlab-execute-time
+    ]);
   
     kernels = {
       python3 = let
-        env = my-env;
+        env = (python.withPackages (pythonPackages: with pythonPackages; [
+                autograd
+                bokeh # interactive plots
+                bokeh-sampledata
+                distutils
+                hf-xet
+                ipydatawidgets
+                ipykernel
+                ipympl # jupyter lab matplotlib extension
+                ipython
+                ipywidgets
+                jedi-language-server
+                jturtle
+                jupyter-book
+                jupyterlab
+                jupyterlab-git
+                jupyterlab-lsp
+                jupyterlab-rise
+                jupyterlab-widgets
+                #jupyterlab-language-pack-de-DE
+                jupytext
+                keyboard
+                litellm
+                mariadb
+                matplotlib
+                metakernel
+                mysql-connector
+                numpy
+                numpy-stl
+                ollama
+                pandas
+                pedal
+                pgzero
+                pillow
+                pip
+                plotly
+                prettytable
+                pycryptodome
+                pygame-ce
+                pylint
+                pytest
+                pytest-cov
+                python-gnupg
+                requests
+                scikit-image
+                scikit-learn
+                scipy
+                seaborn
+                setuptools
+                shapely
+                tabulate
+                tkinter
+                torch
+                torchaudio
+                torchvision
+                tqdm
+                wheel
+              ]));
         in {
           displayName = "Python 3";
           argv = [
