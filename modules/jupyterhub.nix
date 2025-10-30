@@ -10,7 +10,9 @@ let
         jturtle = pyfinal.callPackage ../nix-shells/extra-packages/jturtle.nix { };
         jupyterlab-rise = pyfinal.callPackage ../nix-shells/extra-packages/jupyterlab-rise.nix { };
         jupyterlab-mathjax3 = pyfinal.callPackage ../nix-shells/extra-packages/jupyterlab-mathjax3.nix { };
-        
+      };
+    };
+    my-env = python.withPackages (p: with p; [
         autograd
         bokeh # interactive plots
         bokeh-sampledata
@@ -22,10 +24,12 @@ let
         ipython
         ipywidgets
         jedi-language-server
+        jturtle
         jupyter-book
         jupyterlab
         jupyterlab-git
         jupyterlab-lsp
+        jupyterlab-rise
         jupyterlab-widgets
         #jupyterlab-language-pack-de-DE
         jupytext
@@ -39,6 +43,8 @@ let
         numpy-stl
         ollama
         pandas
+        pedal
+        pgzero
         pillow
         pip
         plotly
@@ -63,8 +69,7 @@ let
         torchvision
         tqdm
         wheel
-      };
-    };
+        ]);
 in
 {
   # nix-shell -p mkcert
@@ -78,8 +83,7 @@ in
   # \$ nix search wget
   environment.systemPackages = with pkgs; [
   
-    python
-    jupyter
+    my-env
     texliveFull
     pandoc
     imagemagick
@@ -145,11 +149,11 @@ in
       c.SystemdSpawner.dynamic_users = True
     '';
 
-    jupyterlabEnv = python;
+    jupyterlabEnv = my-env;
   
     kernels = {
       python3 = let
-        env = python;
+        env = my-env;
         in {
           displayName = "Python 3";
           argv = [
