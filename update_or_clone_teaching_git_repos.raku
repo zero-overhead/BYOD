@@ -21,7 +21,8 @@ my %repos =
     private => False,
     extra_init_cmd => ( 
                 'git config --global advice.ignoredHook false',
-                'git config --global http.postBuffer 157286400'
+                'git config --global http.postBuffer 157286400',
+                'git lfs install'
     )
   }
 ;
