@@ -14,11 +14,12 @@ my %repos =
     url => "github.com",
     user => "zero-overhead",
     private => False
+  },
+  inf-schule.de => {
+    url => "github.com",
+    user => "zero-overhead",
+    private => False
   }
-  #Zettelkasten => {
-  #  url => "github.com",
-  #  user => "zero-overhead"
-  #}
 ;
 
 ##################################################
