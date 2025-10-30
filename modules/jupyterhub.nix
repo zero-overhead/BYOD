@@ -98,6 +98,8 @@ in
        jupyterlab-git
        jupyterlab-lsp
        jupyterlab-widgets
+       jupyterlab-rise
+       jupyterlab-mathjax3
 #       jupyterlab-execute-time
     ]);
   
