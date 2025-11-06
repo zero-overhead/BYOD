@@ -1,0 +1,3 @@
+[submodule "nix-shells"]
+	path = nix-shells
+	url = https://github.com/zero-overhead/nix-shells
