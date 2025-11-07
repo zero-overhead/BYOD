@@ -34,6 +34,7 @@ in
     gnuplot
     ffmpeg
     mkcert
+    quarto
     
     rakudo
     zef
