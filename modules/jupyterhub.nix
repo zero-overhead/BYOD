@@ -135,6 +135,7 @@ in
                 numpy
                 numpy-stl
                 ollama
+                openpyxl
                 pandas
                 pedal
                 pgzero
