@@ -18,7 +18,15 @@
 	    # allow the GPU to use system RAM when it runs out of VRAM
 	    GGML_CUDA_ENABLE_UNIFIED_MEMORY = "1";
 	  
-	    # Always schedule model across all GPUs
+      # Conservative memory settings
+      # Limit the number of parallel requests
+      OLLAMA_NUM_PARALLEL = "1";
+      # Limit the number of loaded models - all consume full RAM
+      OLLAMA_MAX_LOADED_MODELS = "1";
+      # free unused models after this time
+      OLLAMA_KEEP_ALIVE = "60m";
+
+      # Always schedule model across all GPUs
 	    #OLLAMA_SCHED_SPREAD = "1";
 	  
       # deactivate GPUs as we get errors
