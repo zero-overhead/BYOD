@@ -10,6 +10,7 @@ let
         jturtle = pyfinal.callPackage ../nix-shells/extra-packages/jturtle.nix { };
         jupyterlab-rise = pyfinal.callPackage ../nix-shells/extra-packages/jupyterlab-rise.nix { };
         jupyterlab-mathjax3 = pyfinal.callPackage ../nix-shells/extra-packages/jupyterlab-mathjax3.nix { };
+        itables = pyfinal.callPackage ../nix-shells/extra-packages/itables.nix { };
       };
     };
 in
@@ -116,6 +117,7 @@ in
                 ipympl # jupyter lab matplotlib extension
                 ipython
                 ipywidgets
+                itables
                 jedi-language-server
                 jturtle
                 jupyter-book
