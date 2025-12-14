@@ -5,7 +5,7 @@
 # auth token for repos must be environment variables (export TOKEN_NAME=....) 
 # have the same name as the repo, except all upper case and all - replaced by _
 my %repos =
-  'edu-public-jupyter-notebooks' => {
+  'edu-pub-jnb' => {
     url => "github.com",
     user => "rcmlz",
     private => False
