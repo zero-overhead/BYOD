@@ -12,7 +12,7 @@ in
   imports = [ 
       # home-manager as module
       <home-manager/nixos>
-      modules/jupyterhub.nix
+      #modules/jupyterhub.nix
       modules/lamp.nix
       modules/ollama.nix
       #modules/docker.nix
