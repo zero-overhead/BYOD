@@ -15,6 +15,7 @@ in
       modules/jupyterhub.nix
       modules/lamp.nix
       modules/ollama.nix
+      #modules/docker.nix
 ];
 
   networking.hostName = "nixos"; # Define your hostname.
@@ -246,7 +247,7 @@ in
   users.users.demo = {
     isNormalUser = true;
     description = "demo";
-    extraGroups = [ "networkmanager" "wheel" "video" "dialout" "vboxsf" "kvm" ];
+    extraGroups = [ "networkmanager" "wheel" "video" "dialout" "vboxsf" "kvm" "docker"];
     # mkpasswd -m sha-512
     hashedPassword = "$6$rfbRiHox9teafYrN$m5ga/Vs74pAAobd9NLhCtFzCEOW5esIX19qnC7RO41H.XiF302/2AE8GUBZNOw60.sG.w2VBkuamKCBL.B8bg1";
     #packages = with pkgs; [
