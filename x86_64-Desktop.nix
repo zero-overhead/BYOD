@@ -1,15 +1,17 @@
 #sudo nixos-rebuild {dry-build, switch} -I nixos-config=x86_64-Desktop.nix
-
 { config, pkgs, lib,  ... }:
 
 {
-
   imports = [ 
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
 
       # Common Configuration
       ./BYOD-configuration.nix
+
+      # special configs
+      ./modules/ollama.nix
+      ./modules/lamp.nix
   ];
 
   ###########################
@@ -50,7 +52,7 @@
   users.users.guest = {
     isNormalUser = true;
     description = "guest";
-    extraGroups = [ "networkmanager" "wheel" "video" "dialout" "vboxsf" "kvm" ];
+    extraGroups = [ "networkmanager" "wheel" "video" "dialout" ];
     password = "";
   };
 
@@ -58,8 +60,8 @@
   systemd.tmpfiles.rules = [ "D! /home/guest 0700 guest users" ];
   
   # more games
-  environment.systemPackages = with pkgs; [
-    pingus
+#  environment.systemPackages = with pkgs; [
+#    pingus
 #    oh-my-git
 #    superTuxKart
 #    tuxtype
@@ -75,7 +77,7 @@
 #    wireworld
 #    xlife
 #    urbanterror
-  ];
+#  ];
 
   # Energy Management Laptop
   # https://nixos.wiki/wiki/Laptop
@@ -93,4 +95,12 @@
     };
   };
   services.thermald.enable = true;
+
+  # This value determines the NixOS release from which the default
+  # settings for stateful data, like file locations and database versions
+  # on your system were taken. It‘s perfectly fine and recommended to leave
+  # this value at the release version of the first install of this system.
+  # Before changing this value read the documentation for this option
+  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+  system.stateVersion = "25.11"; # Did you read the comment?
 }

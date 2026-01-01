@@ -3,10 +3,6 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, lib, options, ... }:
-let
-  # irgendwann wird dass hoffentlich in pkgs verfügbar sein
-  filius = pkgs.callPackage ./nix-shells/extra-packages/filius-compiled.nix { };
-in 
 {
 
   imports = [ 
@@ -127,11 +123,15 @@ in
 
     git.enable = true;
     git.lfs.enable = true;
+    
     vim.enable = true;
+    nano.enable = true;
+
     htop.enable = true;
     mtr.enable = true; # traceroute + ping
     direnv.enable = true;
     npm.enable = true;
+    tcpdump.enable = true;
 
     firefox.enable = true;
     thunderbird.enable = true;
@@ -163,8 +163,6 @@ in
   # List packages installed in system profile. To search, run:
   # \$ nix search wget
   environment.systemPackages = with pkgs; [
-    nano
-    vim
     wget
     git-crypt
     gnupg
@@ -179,9 +177,7 @@ in
     xarchiver
     hyperfine
     tokei
-    tcpdump
     nload
-    htop
     btop
     
     cowsay
@@ -218,11 +214,11 @@ in
 
     thonny
     tigerjython
+    filius
     #p3x-onenote
-    #obsidian
+    obsidian
     libreoffice
     geany
-    filius
     gnumeric
 
     texliveFull
@@ -1064,13 +1060,4 @@ in
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
-
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "25.05"; # Did you read the comment?
-
 }
