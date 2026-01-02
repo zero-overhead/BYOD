@@ -54,6 +54,9 @@ sudo rm -rf /etc/nixos/configuration.nix
 sudo ln -s $MYNIXCONFIG /etc/nixos/configuration.nix
 sudo rm -rf /etc/nixos/nix-shells
 sudo cp -r nix-shells /etc/nixos/
+sudo cp -r modules /etc/nixos/
+sudo cp -r hardware /etc/nixos/
+sudo cp -r server /etc/nixos/
 
 # apply configuration
 sudo nixos-rebuild switch --upgrade -I nixos-config=$MYNIXCONFIG
