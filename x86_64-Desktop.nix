@@ -46,7 +46,7 @@
   systemd.tmpfiles.rules = [ "D! /home/guest 0700 guest users" ];
   
   # Enable automatic login for the user.
-  services.displayManager.autoLogin.user = lib.mkForce "guest";
+  #services.displayManager.autoLogin.user = lib.mkForce "guest";
 
   # more games
 #  environment.systemPackages = with pkgs; [
