@@ -13,7 +13,7 @@ then
 fi
 
 #MYNIXVERSION=nixos-unstable
-MYNIXVERSION=nixos-25.05
+MYNIXVERSION=nixos-25.11
 PROJECT=BYOD
 
 # take the last argument as config 

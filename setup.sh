@@ -12,13 +12,16 @@ then
     exit 1
 fi
 
-MYNIXVERSION=25.05
+MYNIXVERSION=25.11
 PROJECT=BYOD
 
 # take the last argument as config 
 for i in "$@"; do :; done
 MYNIXCONFIG=$i
 
+sudo nix-channel --list
+sudo nix-channel --remove nixos
+sudo nix-channel --remove home-manager
 sudo nix-channel --add https://channels.nixos.org/nixos-$MYNIXVERSION nixos
 sudo nix-channel --add https://github.com/nix-community/home-manager/archive/release-$MYNIXVERSION.tar.gz home-manager
 sudo nix-channel --update
