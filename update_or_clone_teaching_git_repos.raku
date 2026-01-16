@@ -38,12 +38,9 @@ my $DOCUMENTS = $HOME.IO.add("Documents").e
                       ?? $HOME.IO.add("Dokumente")
                       !! $HOME.IO;
 
-if ($DOCUMENTS ne $HOME.IO) && not $DOCUMENTS.add("docker").e {
+if $DOCUMENTS ne $HOME.IO {
   $DOCUMENTS = $DOCUMENTS.add("Informatik");
   mkdir $DOCUMENTS unless $DOCUMENTS.e;
-}
-if $DOCUMENTS.add("docker").e {
-  $DOCUMENTS = $DOCUMENTS.add("docker");
 }
 
 ##################################################
