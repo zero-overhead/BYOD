@@ -120,7 +120,7 @@ in
                 itables
                 jedi-language-server
                 #jturtle
-                jupyter-book
+                #jupyter-book
                 jupyterlab
                 jupyterlab-git
                 jupyterlab-lsp
