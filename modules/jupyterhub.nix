@@ -6,10 +6,10 @@ let
       packageOverrides = pyfinal: pyprev: {
         # dieses Python-Packete exitieren leider nicht in search.nixos.org - deshalb müssen wir sie selbst bauen
         pedal = pyfinal.callPackage ../nix-shells/extra-packages/pedal.nix { };
-        pgzero = pyfinal.callPackage ../nix-shells/extra-packages/pgzero.nix { };
-        jturtle = pyfinal.callPackage ../nix-shells/extra-packages/jturtle.nix { };
-        jupyterlab-rise = pyfinal.callPackage ../nix-shells/extra-packages/jupyterlab-rise.nix { };
-        jupyterlab-mathjax3 = pyfinal.callPackage ../nix-shells/extra-packages/jupyterlab-mathjax3.nix { };
+        #pgzero = pyfinal.callPackage ../nix-shells/extra-packages/pgzero.nix { };
+        #jturtle = pyfinal.callPackage ../nix-shells/extra-packages/jturtle.nix { };
+        #jupyterlab-rise = pyfinal.callPackage ../nix-shells/extra-packages/jupyterlab-rise.nix { };
+        #jupyterlab-mathjax3 = pyfinal.callPackage ../nix-shells/extra-packages/jupyterlab-mathjax3.nix { };
         itables = pyfinal.callPackage ../nix-shells/extra-packages/itables.nix { };
       };
     };
@@ -99,8 +99,8 @@ in
        jupyterlab-git
        jupyterlab-lsp
        jupyterlab-widgets
-       jupyterlab-rise
-       jupyterlab-mathjax3
+#       jupyterlab-rise
+#       jupyterlab-mathjax3
 #       jupyterlab-execute-time
     ]);
   
@@ -119,12 +119,12 @@ in
                 ipywidgets
                 itables
                 jedi-language-server
-                jturtle
+                #jturtle
                 jupyter-book
                 jupyterlab
                 jupyterlab-git
                 jupyterlab-lsp
-                jupyterlab-rise
+                #jupyterlab-rise
                 jupyterlab-widgets
                 #jupyterlab-language-pack-de-DE
                 jupytext
@@ -146,7 +146,7 @@ in
                 openpyxl
                 pandas
                 pedal
-                pgzero
+                #pgzero
                 pillow
                 pip
                 plotly
@@ -165,7 +165,7 @@ in
                 setuptools
                 shapely
                 tabulate
-                tkinter
+                #tkinter
                 torch
                 torchaudio
                 torchvision
