@@ -5,7 +5,7 @@ let
       self = my-python;
       packageOverrides = pyfinal: pyprev: {
         # dieses Python-Packete exitieren leider nicht in search.nixos.org - deshalb müssen wir sie selbst bauen
-        pedal = pyfinal.callPackage ../nix-shells/extra-packages/pedal.nix { };
+        #pedal = pyfinal.callPackage ../nix-shells/extra-packages/pedal.nix { };
         #pgzero = pyfinal.callPackage ../nix-shells/extra-packages/pgzero.nix { };
         #jturtle = pyfinal.callPackage ../nix-shells/extra-packages/jturtle.nix { };
         #jupyterlab-rise = pyfinal.callPackage ../nix-shells/extra-packages/jupyterlab-rise.nix { };
@@ -145,7 +145,7 @@ in
                 openai
                 openpyxl
                 pandas
-                pedal
+                #pedal
                 #pgzero
                 pillow
                 pip
