@@ -1,6 +1,7 @@
 # BYOD + [VirtualBox](https://www.virtualbox.org) oder [UTM]( https://mac.getutm.app) + [NixOS](https://nixos.org) = Unified CS-Teaching Environment
 
-Hinweis: Das Passwort des Nutzers `demo` in der Basis-NixOS-VM lautet `demo`. Bei der Eingabe des Passwords im Terminal wird aus Sicherheitsgründen nichts angezeigt.
+1. Wenn du von deinem Computer per Browser auf ein vorkonfiguriertes Jupyter in der Headless-Variante der VM zugreifen willst: [Headless.md](Headless.md)
+2. Das Passwort des Nutzers `demo` in der Basis-NixOS-VM lautet `demo`. Bei der Eingabe des Passwords im Terminal wird aus Sicherheitsgründen nichts angezeigt.
 
 ## Installation und Aktualisierung
 
