@@ -47,16 +47,16 @@ rm -rf $HOME/.mozilla
 rm -rf $HOME/.zshrc
 
 # making configurations global
-sudo mv /etc/nixos/configuration.nix /etc/nixos/configuration.nix.bak
-sudo mv /etc/nixos/hardware-configuration.nix /etc/nixos/hardware-configuration.nix.bak
-sudo cp *.nix /etc/nixos/
-sudo rm -rf /etc/nixos/configuration.nix
-sudo ln -s $MYNIXCONFIG /etc/nixos/configuration.nix
-sudo rm -rf /etc/nixos/nix-shells
-sudo cp -r nix-shells /etc/nixos/
-sudo cp -r modules /etc/nixos/
-sudo cp -r hardware /etc/nixos/
-sudo cp -r server /etc/nixos/
+#sudo mv /etc/nixos/configuration.nix /etc/nixos/configuration.nix.bak
+#sudo mv /etc/nixos/hardware-configuration.nix /etc/nixos/hardware-configuration.nix.bak
+#sudo cp *.nix /etc/nixos/
+#sudo rm -rf /etc/nixos/configuration.nix
+#sudo ln -s $MYNIXCONFIG /etc/nixos/configuration.nix
+#sudo rm -rf /etc/nixos/nix-shells
+#sudo cp -r nix-shells /etc/nixos/
+#sudo cp -r modules /etc/nixos/
+#sudo cp -r hardware /etc/nixos/
+#sudo cp -r server /etc/nixos/
 
 # apply configuration
 sudo nixos-rebuild switch --upgrade -I nixos-config=$MYNIXCONFIG
