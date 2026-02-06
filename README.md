@@ -5,7 +5,7 @@
 
 ## Installation und Aktualisierung
 
-Erzeuge eine neue oder - etwas einfacher für Einsteiger - importiere eine fertige NixOS-VM.
+Erzeuge eine neue oder - etwas einfacher für Einsteiger - importiere eine fertige NixOS-VM, die EFI zum booten verwendet. Dazu bspw. in VirtualBox den Haken bei "Virtuelle Hardware" -> "EFI verwenden" setzen.
 
 |Virtual Box|UTM|
 |--|--|
