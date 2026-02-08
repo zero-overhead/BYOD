@@ -13,7 +13,7 @@ Du kannst dich nun mit einem beliebigen Nutzernamen anmelden. Das Passwort laute
 Um die Notebooks zu aktualisieren, starte in Jupyter ein Terminal und führe den folgenden Befehl aus:
 
 ```bash
-curl -fsSL https://link.melzian.ch/notebooks | raku -
+curl -fsSL https://raw.githubusercontent.com/zero-overhead/BYOD/refs/heads/main/update_or_clone_teaching_git_repos.raku | raku -
 ```
 
 ![unterlagen-aktualisieren](img/unterlagen-aktualisieren.png)
@@ -25,7 +25,7 @@ Du aktualisierst die Headless-VM mit u.g. Befehl. Tippe diesen in das VirtualBox
 Auch wenn mal irgendetwas kaputt gegangen ist und du keinen Snapshot in VirtualBox/UTM wiederherstellen kannst - weil du bspw. keinen angelegt hast, als die VM noch funktioniert hat -  kannst du mit dem gleichen Befehl die Headless-VM reparieren.
 
 ```bash
-curl -fsSL https://link.melzian.ch/headless | bash -
+curl -fsSL https://raw.githubusercontent.com/zero-overhead/BYOD/refs/heads/main/setup-server.sh | bash -s server/vm-headless-no-openwebui.nix
 ```
 
 ![virtualbox-update-headless-vm](img/virtualbox-update-headless-vm.png)
