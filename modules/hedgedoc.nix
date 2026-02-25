@@ -10,7 +10,7 @@
         host = "0.0.0.0"; # Listen to all Interfaces
         urlAddPort = true;
         protocolUseSSL = false;
-        allowEmailRegister = false;
+        allowEmailRegister = true;
         allowAnonymous = true;
 #        allowOrigin = [
 #          "0.0.0.0"
