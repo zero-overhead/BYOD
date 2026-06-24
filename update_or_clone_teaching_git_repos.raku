@@ -36,10 +36,12 @@ my $DOCUMENTS = $HOME.IO.add("Documents").e
                   ?? $HOME.IO.add("Documents")
                   !! $HOME.IO.add("Dokumente").e 
                       ?? $HOME.IO.add("Dokumente")
-                      !! $HOME.IO;
+                      !! $HOME.IO.add("work").e
+                        ?? $HOME.IO.add("work")
+                        !! $HOME.IO;
 
-if $DOCUMENTS ne $HOME.IO {
-  $DOCUMENTS = $DOCUMENTS.add("Informatik");
+if ($DOCUMENTS ne $HOME.IO) or ($DOCUMENTS ne $HOME.IO.add("work")) {
+  $DOCUMENTS = $DOCUMENTS.add("Informatik-Unterlagen");
   mkdir $DOCUMENTS unless $DOCUMENTS.e;
 }
 
