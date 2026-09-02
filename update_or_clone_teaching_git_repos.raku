@@ -10,11 +10,11 @@ my %repos =
     user => "rcmlz",
     private => False
   },
-  'python-course' => {
-    url => "github.com",
-    user => "zero-overhead",
-    private => False
-  },
+  #'python-course' => {
+  #  url => "github.com",
+  #  user => "zero-overhead",
+  #  private => False
+  #},
   'inf-schule.de' => {
     url => "github.com",
     user => "zero-overhead",
