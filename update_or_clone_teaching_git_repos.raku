@@ -40,10 +40,10 @@ my $DOCUMENTS = $HOME.IO.add("Documents").e
                         ?? $HOME.IO.add("work")
                         !! $HOME.IO;
 
-if ($DOCUMENTS ne $HOME.IO) or ($DOCUMENTS ne $HOME.IO.add("work")) {
-  $DOCUMENTS = $DOCUMENTS.add("Informatik-Unterlagen");
-  mkdir $DOCUMENTS unless $DOCUMENTS.e;
-}
+#if ($DOCUMENTS ne $HOME.IO) or ($DOCUMENTS ne $HOME.IO.add("work")) {
+#  $DOCUMENTS = $DOCUMENTS.add("Informatik-Unterlagen");
+#  mkdir $DOCUMENTS unless $DOCUMENTS.e;
+#}
 
 ##################################################
 # init or update repos
